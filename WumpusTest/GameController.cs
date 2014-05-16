@@ -8,10 +8,10 @@ namespace WumpusTest
 {
     class GameController
     {
-        private Player player = new Player();
-        private Map map = new Map();
         class GameState
         {
+            private Player player = new Player();
+            private Map map = new Map();
             public GameState(Player player, Map map)
             {
 
@@ -29,15 +29,15 @@ namespace WumpusTest
                 return updateGameState();
             }
 
-            public static GameState buyAnArrow()
+            public GameState getTotalAfterBought()
             {
-                arrows++;
+                player.addArrows();
                 return updateGameState();
             }
 
-            private static GameState updateGameState()
+            private GameState updateGameState()
             {
-                return new GameState(arrows, score, loc);
+                return new GameState(player, map);
             }
         }
     }
