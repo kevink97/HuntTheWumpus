@@ -8,37 +8,37 @@ namespace WumpusTest
 {
     class GameController
     {
-        class GameState
+        enum GameState { MENU, GAME, END}
+        private Player player = new Player();
+        private Map map = new Map();
+        private int currentGameState;
+
+        public void newGame(Object sender, EventArgs e)
         {
-            private Player player = new Player();
-            private Map map = new Map();
-            public GameState(Player player, Map map)
+            currentGameState = (int)GameState.GAME;
+            getMap();
+            getPlayerInfo();
+        }
+
+        private Map getMap()
+        {
+            return map;
+        }
+
+        private Player getPlayerInfo()
+        {
+            if((currentGameState == (int)GameState.GAME) || (currentGameState == (int)GameState.END))
             {
-
+                return player;
             }
+            else return null;
+        }
 
-            public GameState newGame()
-            {
-                return null;
+        public void move(int cellNumber)
+        {
+            map.movePlayer(cellNumber);
+        }
 
-            }
-
-
-            public GameState move(Map loc)
-            {
-                return updateGameState();
-            }
-
-            public GameState getTotalAfterBought()
-            {
-                player.addArrows();
-                return updateGameState();
-            }
-
-            private GameState updateGameState()
-            {
-                return new GameState(player, map);
-            }
         }
     }
 
