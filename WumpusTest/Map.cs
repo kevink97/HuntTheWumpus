@@ -25,6 +25,12 @@ namespace WumpusTest
         {
             playerPosition = cellnumber;
         }
+
+        //ADDED TO FIT NEEDED
+        public void moveWumpus(int cellNumber)
+        {
+            wumpusPosition = cellNumber;
+        }
         
         public bool isWumpusNear()
         {

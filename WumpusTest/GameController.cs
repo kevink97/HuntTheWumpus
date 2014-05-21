@@ -17,49 +17,60 @@ namespace WumpusTest
             private int currentState = 1;
 
             /// <summary>
-            /// Updating Changes Current State of Game
+            /// Updating Changes Current State of Game  (1 = MENU | 2 = GAME | 3 = END)
             /// </summary>
-            /// <param name="currentState">1 = MENU | 2 = GAME | 3 = END</param>
+            /// <param name="currentState">int of set currentState</param>
             public void changeCurrentState(int currentState)
             {
                 this.currentState = currentState;
             }
 
             /// <summary>
-            /// Gets what part of the game it is on (MENU/GAME/END)
+            /// Gets what part of the game it is on (1 = MENU | 2 = GAME | 3 = END)
             /// </summary>
-            /// <returns>the integer value of Game State. (1 = MENU | 2 = GAME | 3 = END)</returns>
+            /// <returns>the integer value of Game State. </returns>
             public int getCurrentState()
             {
                 return currentState;
             }
         }
         private Player player = new Player();
+        private Wumpus wumpus = new Wumpus();
         private Map map = new Map();
-        GameState gs = new GameState();
+        private Sound sound = new Sound();
+        private GameState gs = new GameState();
+        private Random random = new Random();
 
         /// <summary>
         /// Use this method to declare that the game is starting to keep track of GameState.
+        /// It sets CurrentState to GAME
+        /// Sets both Player and the Wumpus's Position.
+        /// Plays continuous background noise.
         /// </summary>
         public void newGame()
         {
-            gs.changeCurrentState(1);
+            gs.changeCurrentState(2);
             map.Generate();
             map.generateRandomPlayerPosition();
             map.generateRandomWumpusPosition();
+            sound.playBackgroundMusic(Continuous.background);
         }
 
         /// <summary>
-        /// Gets latest Map Data. 
+        /// Gets latest Map Data. Cond: CurrentState is GAME
         /// Note: Graphics...call only necessary data as listed.
-        /// getConnectedRooms(int room), getPosition(), 
+        /// getConnectedRooms(int room), getPlayerPosition().
         /// </summary>
-        /// <returns>Map Data</returns>
+        /// <returns>Map Data if GameState is GAME</returns>
         public Map getMap()
         {
-            return map;
+            if(gs.getCurrentState() == GameState.GAME)
+            {
+                return map;
+            }
+            else return null;
         }
-
+        
         /// <summary>
         /// Gets Player Object created in GameController class.
         /// </summary>
@@ -67,20 +78,71 @@ namespace WumpusTest
         /// Other wise, it will return null to prohibit bad calls.</returns>
         public Player getPlayerInfo()
         {
-            if((gs.getCurrentState() == GameState.MENU) || (gs.getCurrentState() == GameState.GAME))
+            if((gs.getCurrentState() == GameState.END) || (gs.getCurrentState() == GameState.GAME))
             {
                 return player;
             }
             else return null;
         }
 
+        /// <summary>
+        /// This is the main moving method for the player.
+        /// Every movement of player needs to call this method. 
+        /// It runs sound as well based on location of wumpus.
+        /// </summary>
+        /// <param name="cellNumber">Cell Number is required to be a connected room of the player's.</param>
         public void move(int cellNumber)
         {
-            map.movePlayer(cellNumber);
+            if((gs.getCurrentState() == 2) && isConnectedRoomsForPlayer(cellNumber))
+            {
+                player.addTurn();
+                wumpus.addTurn();
+                map.movePlayer(cellNumber);
+                int[] room = map.getConnectedRooms(map.getWumpusPosition());
+                int randomInt = random.Next(0, room.Length);
+                map.moveWumpus(randomInt);
+                if (map.getWumpusPosition() == map.getPlayerPosition())
+                {
+                    sound.playBackgroundMusic(Continuous.carnivalBackground);
+                }
+                else if (map.isWumpusNear())
+                {
+                    sound.playSound(soundEffects.wumpusClown);
+                }
+            }
         }
 
+        /// <summary>
+        /// Use this method to buy arrows. Each arrows cost 20 gold.
+        /// </summary>
+        /// <returns>returns true if gold stays above or equal to 0 | returns false if gold does go below 0</returns>
+        public Boolean buyArrows()
+        {
+            if(player.getGold() - 20 >= 0)
+            {
+                player.removeGold(20);
+                player.addArrows();
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// only for GameController's reference for ease of programming
+        /// </summary>
+        /// <param name="cellNumber">cell number of the place player wants to go</param>
+        /// <returns>if the connected room matches cell number it returns true. Otherwise, false.</returns>
+        private Boolean isConnectedRoomsForPlayer(int cellNumber)
+        {
+            int[] room = map.getConnectedRooms(map.getPlayerPosition());
+            for(int i = 0; i < room.Length; i++)
+            {
+                if(room[i] == cellNumber)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
-
-
 }
