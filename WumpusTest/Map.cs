@@ -12,7 +12,9 @@ namespace WumpusTest
         const int mapSize = 30;
         int batPosition;
         int pitPosition;
-        int wumpusPosition; 
+        int wumpusPosition;
+        //added new private member variable Random to ensure randomness
+        private Random random = new Random();
         
         public void Generate()
         {
@@ -68,11 +70,28 @@ namespace WumpusTest
             return 0;
         }   
 
-        public void generateRandomPosition()
+        //ADDED THIS TO POSITION WUMPUS IN THE BEGGINING
+        public void generateRandomWumpusPosition()
         {
-            Random random = new Random();
+            Boolean loop = true;
+            while(loop)
+            {
+                int randomInt = random.Next(mapSize);
+                if(getPlayerPosition() != randomInt)
+                {
+                    wumpusPosition = randomInt;
+                    break;
+                }
+            }
+        }
+
+        //FIXED NAMING TO FIT NEEDS
+        public void generateRandomPlayerPosition()
+        {
             playerPosition = random.Next(mapSize);
         }
+
+
 
         public int[] getConnectedRooms(int room)
         {
@@ -100,7 +119,8 @@ namespace WumpusTest
             return wumpusPosition; 
         }
 
-        public int getPosition()
+        //CHANGED NAME OF METHOD TO FIT NEEDS
+        public int getPlayerPosition()
         {
             return playerPosition;
         }

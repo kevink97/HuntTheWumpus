@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WumpusTester
+namespace WumpusTest
 {    public enum Continuous {background,trivia, menu, carnivalBackground}
      public enum soundEffects{bats, wumpusClown, movingForward, fallIntoPit, victory, babysneeze}
     class Sound
