@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace WumpusTester
-{    public enum Continuous {background,trivia, menu, cityBackground}
-     public enum soundEffects{bats, wumpus, movingForward, fallIntoPit, victory, babysneeze}
+{    public enum Continuous {background,trivia, menu, carnivalBackground}
+     public enum soundEffects{bats, wumpusClown, movingForward, fallIntoPit, victory, babysneeze}
     class Sound
     {
         private WMPLib.WindowsMediaPlayer soundEffectsPlayer;
@@ -30,7 +30,7 @@ namespace WumpusTester
                 soundEffectsPlayer.URL = "chimes.wav";
             }
 
-            if (shortsound == soundEffects.wumpus){
+            if (shortsound == soundEffects.wumpusClown){
                 soundEffectsPlayer.URL = "tada.wav";
             }
 
@@ -43,11 +43,13 @@ namespace WumpusTester
 
         public void playBackgroundMusic(Continuous background){
             
-            if (background == Continuous.cityBackground){
-                soundEffectsPlayer.URL = "cityBackground";
+            if (background == Continuous.carnivalBackground){
+                soundEffectsPlayer.URL = "carnivalBackground";
             }
         
         }
+
+        // 
 
     }
 }

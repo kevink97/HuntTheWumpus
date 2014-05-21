@@ -2,67 +2,79 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Random;
 namespace WumpusTester
 {   
     class Wumpus
     {
         private Sound _sound;
-        public enum WumpusState { asleep, awake };
+        public enum WumpusState { asleep, awake, moving };
         public WumpusState State{ get; set;}
        
         public enum numTurnsActiveWump { noMove, moveOnce, moveTwice, randomMove}; 
         public numTurnsActiveWump numTurns{get; set;}
 
-       // private Location loc = new Location();
-       // generate random location when it starts
-        public Wumpus()//loc)
+        private Random random = new Random();
+        private int turns;
+        private Map  loc = new Map();
+  
+        public Wumpus() 
         {
             State = WumpusState.asleep;
             State = WumpusState.awake;
-
-            //this.loc = loc;
-            //generate random location
+            State = WumpusState.moving;
+            loc.movePlayer(random.Next(50));
         }
 
-        // yes or no move, far or near
-        // own sound effects/trivia
+        private void move() 
+        {
+            int[] room = loc.getConnectedRooms(loc.getPosition());
+            int choose = random.Next(0, room.Length);
+            loc.movePlayer(choose);
+        }
+
+
+        //own sound effects/trivia
         public void playSound()
         {
-
-            //talk to game control, if wumpus is nearby, play a sound
-            if (loc.nearPlayer())
+            if (loc.isWumpusNear())
             {
-                _sound.playSound(soundEffects.wumpus);
-                //move
+                _sound.playSound(soundEffects.wumpusClown);
+                move();
             }
 
-            if (loc.farPlayer())
+            else
             {
-                _sound.playSound(soundEffects.wumpus); 
-                //no move
+               // different sound
+                _sound.playSound(soundEffects.wumpusClown); 
             }
 
         }
 
-        public void numTurns() {
-           
-           }
+         // turn : turn++ when user asks if the wumpus should move. Enum of Active wumpus and lazy wumpus.
+        public void numTurnsActiveWumpus() { 
+            turns++;
 
+            if (turns >= 5 && turns <=10){
+               State = WumpusState.awake;
+               //Game control: move 1 room per turn for up to three turns
+            }
+
+            int chance;
+            chance = random.Next(20);
+
+            if (chance == 5){
+                 int[] room = loc.getConnectedRooms(loc.getPosition());
+                 int choose = room[random.Next(0, room.Length)];
+                 loc.movePlayer(choose);
+            }
+            
+            }
         }
-
-
-
+        }
         //•	Keep track of the current state the Wumpus is in (*that is, asleep and awake).
         //•	Keep track of the number of turns.
         //•	Every 5 to 10 turns the Wumpus will wake up and move 1 room per turn for up to three turns
         //  before going back to sleep.
+        //•	Every turn, there is a 5% chance the Wumpus will immediatelyteleport to a new, random location.
 
-     // turn : turn++ when user asks if the wumpus should move. Enum of Active wumpus and lazy wumpus.
-
-
-
-  
-
-    }
-}

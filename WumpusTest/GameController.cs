@@ -13,7 +13,7 @@ namespace WumpusTest
         private Map map = new Map();
         private int currentGameState;
 
-        public void newGame(Object sender, EventArgs e)
+        public void newGame()
         {
             currentGameState = (int)GameState.GAME;
             getMap();

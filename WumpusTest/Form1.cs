@@ -11,39 +11,35 @@ namespace WumpusTest
 {
     public partial class Form1 : Form
     {
-        private GameController _GameController;
-        private static int numberOfCave = 0;
+        GameController gc = new GameController();
         public Form1()
         {
             InitializeComponent();
+            //showBackground();
+            Graphics graphics = new Graphics();
         }
 
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ConstructorButton_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void time_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newGame_Click(object sender, EventArgs e)
-        {
-            _GameController = new GameController();
-        }
-
-        private void highScore_Click(object sender, EventArgs e)
-        {
-            //HighScore _HighScore = new HighScore();
-            //_HighScore.showDisplay();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //WumpusGraphics graphics = new WumpusGraphics(this);
+           // graphics.drawWumpus();
+            Graphics graphics = new Graphics();
+            graphics.Show();
+            this.Hide();
+            gc.newGame();
+       
         }
+        private void pictureBox1_Click(object sender, EventArgs e) {
+        }
+       // public void showBackground()
+        //{
+       //     hamster.ImageLocation = "hamster.jpg";
+       // }
+
     }
 }
