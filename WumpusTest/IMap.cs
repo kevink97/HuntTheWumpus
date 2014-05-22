@@ -7,7 +7,15 @@ namespace WumpusTest
 {
    public interface IMap
     {
-        void Generate();
+        void GenerateCave();
+
+        void GenerateCave2();
+
+        void GenerateCave3();
+
+        void GenerateCave4();
+
+        void GenerateCave5();
 
         void movePlayer(int cellnumber);
 
@@ -17,18 +25,27 @@ namespace WumpusTest
 
         bool isPitNear();
 
-        int getStartPosition();
-
         void generateRandomPosition();
 
         int[] getConnectedRooms(int room);
 
         bool isPositionHazardous();
 
-        int getPosition();
+        int getPlayerPosition();
 
         int getPitPosition();
 
-        int getWumpusPosition(); 
+        int getWumpusPosition();
+
+        void moveWumpus();
+
+        void generateRandomWumpusPosition();
+
+        void generateRandomPlayerPosition();
+
+        void generatePit();
+
+        void generateBats(); 
+
    }
 }

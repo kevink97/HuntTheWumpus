@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Random;
-namespace WumpusTest
+namespace WumpusTester
 {   
     class Wumpus
     {
@@ -25,14 +25,14 @@ namespace WumpusTest
             State = WumpusState.moving;
             loc.movePlayer(random.Next(50));
         }
-        /* MADE IN G.C
+
         private void move() 
         {
             int[] room = loc.getConnectedRooms(loc.getPosition());
             int choose = random.Next(0, room.Length);
             loc.movePlayer(choose);
         }
-        */
+
 
         //own sound effects/trivia
         public void playSound()
@@ -40,7 +40,7 @@ namespace WumpusTest
             if (loc.isWumpusNear())
             {
                 _sound.playSound(soundEffects.wumpusClown);
-                //move();
+                move();
             }
 
             else
@@ -49,12 +49,6 @@ namespace WumpusTest
                 _sound.playSound(soundEffects.wumpusClown); 
             }
 
-        }
-
-        //ADDED FOR CONVENIENCE
-        public void addTurn()
-        {
-            turns++;
         }
 
          // turn : turn++ when user asks if the wumpus should move. Enum of Active wumpus and lazy wumpus.

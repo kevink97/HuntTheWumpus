@@ -80,6 +80,7 @@
             this.forward.TabIndex = 18;
             this.forward.Text = "Forward";
             this.forward.UseVisualStyleBackColor = true;
+            this.forward.Click += new System.EventHandler(this.forward_Click);
             // 
             // left
             // 
@@ -119,6 +120,7 @@
             this.arrowCount.Size = new System.Drawing.Size(62, 20);
             this.arrowCount.TabIndex = 22;
             this.arrowCount.Text = "Arrows:";
+            this.arrowCount.Click += new System.EventHandler(this.arrowCount_Click);
             // 
             // Graphics
             // 
@@ -134,7 +136,7 @@
             this.Controls.Add(this.right);
             this.Controls.Add(this.pictureBox4);
             this.Name = "Graphics";
-            this.Text = "Graphics";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.Graphics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bat)).EndInit();

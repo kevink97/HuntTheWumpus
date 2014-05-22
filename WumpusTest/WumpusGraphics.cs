@@ -7,8 +7,8 @@ using System.Drawing;
 namespace WumpusTest
 {
     class WumpusGraphics{
-        private Form1 form;
-        public WumpusGraphics(Form1 form){
+        private TitleScreen form;
+        public WumpusGraphics(TitleScreen form){
             this.form = form;
         }
 
