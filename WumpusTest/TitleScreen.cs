@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace WumpusTest
 {
-    public partial class Form1 : Form
+    public partial class TitleScreen : Form
     {
         GameController gc = new GameController();
-        public Form1()
+        public TitleScreen()
         {
             InitializeComponent();
             //showBackground();

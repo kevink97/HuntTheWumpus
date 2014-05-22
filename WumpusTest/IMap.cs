@@ -25,9 +25,7 @@ namespace WumpusTest
 
         bool isPitNear();
 
-        void generateRandomPosition();
-
-        int[] getConnectedRooms(int room);
+        int[] getConnectedRooms(int room, int caveNumber);
 
         bool isPositionHazardous();
 
@@ -37,7 +35,7 @@ namespace WumpusTest
 
         int getWumpusPosition();
 
-        void moveWumpus();
+        void moveWumpus(int cellnumber);
 
         void generateRandomWumpusPosition();
 

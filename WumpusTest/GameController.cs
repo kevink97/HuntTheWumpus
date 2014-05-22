@@ -6,6 +6,7 @@ using System.Text;
 //ONLY GETTERS....i.e. getSorroundingCavew
 namespace WumpusTest
 {
+    //TODO: ADD VAISNHAVI'S CODE
     class GameController
     {
         class GameState
@@ -37,6 +38,7 @@ namespace WumpusTest
         private Player player = new Player();
         private Wumpus wumpus = new Wumpus();
         private Map map = new Map();
+        private int caveNumber = 0; //TODO: implement caveNumber random generator
         private Sound sound = new Sound();
         private GameState gs = new GameState();
         private Random random = new Random();
@@ -50,7 +52,7 @@ namespace WumpusTest
         public void newGame()
         {
             gs.changeCurrentState(2);
-            map.Generate();
+            map.GenerateCave();
             map.generateRandomPlayerPosition();
             map.generateRandomWumpusPosition();
             sound.playBackgroundMusic(Continuous.background);
@@ -98,7 +100,7 @@ namespace WumpusTest
                 player.addTurn();
                 wumpus.addTurn();
                 map.movePlayer(cellNumber);
-                int[] room = map.getConnectedRooms(map.getWumpusPosition());
+                int[] room = map.getConnectedRooms(map.getWumpusPosition(), caveNumber);
                 int randomInt = random.Next(0, room.Length);
                 map.moveWumpus(randomInt);
                 if (map.getWumpusPosition() == map.getPlayerPosition())
@@ -134,7 +136,7 @@ namespace WumpusTest
         /// <returns>if the connected room matches cell number it returns true. Otherwise, false.</returns>
         private Boolean isConnectedRoomsForPlayer(int cellNumber)
         {
-            int[] room = map.getConnectedRooms(map.getPlayerPosition());
+            int[] room = map.getConnectedRooms(map.getPlayerPosition(), caveNumber);
             for(int i = 0; i < room.Length; i++)
             {
                 if(room[i] == cellNumber)

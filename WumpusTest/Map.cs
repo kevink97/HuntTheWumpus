@@ -231,7 +231,7 @@ namespace WumpusTest
             }
         }
 
-        //FIXED NAMING TO FIT NEEDS
+
         public void generateRandomPlayerPosition()
         {
             playerPosition = random.Next(mapSize);

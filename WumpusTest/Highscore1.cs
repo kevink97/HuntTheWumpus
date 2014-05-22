@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             Score newscore = new Score(name, score);
             //add that to list of scores
             int length = listofscores.Length;
-            
+
             if (newscore.getScore() < listofscores[length].getScore())
             {
                 if (length == 10)
@@ -38,13 +38,15 @@ namespace WindowsFormsApplication1
             }
             else if (newscore.getScore() > listofscores[0].getScore())
             {
-                for (int i = 0; i<9; i++){
-                    listofscores[i+1] = listofscores[i];
+                for (int i = 0; i < 9; i++)
+                {
+                    listofscores[i + 1] = listofscores[i];
                 }
-                listofscores[0] = newscore; 
+                listofscores[0] = newscore;
 
-            //sort list
-        };
+                //sort list
+            }
+        }
 
         public void saveScores()
         {
