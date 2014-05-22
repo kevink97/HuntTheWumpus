@@ -9,6 +9,7 @@ namespace WumpusTest
     //TODO: ADD VAISNHAVI'S CODE
     class GameController
     {
+
         class GameState
         {
             public static readonly int MENU = 1;
@@ -34,13 +35,13 @@ namespace WumpusTest
             {
                 return currentState;
             }
-        }
+        } 
         private Player player = new Player();
         private Wumpus wumpus = new Wumpus();
         private Map map = new Map();
         private int caveNumber = 0; //TODO: implement caveNumber random generator
         private Sound sound = new Sound();
-        private GameState gs = new GameState();
+        private static GameState gs = new GameState();
         private Random random = new Random();
 
         /// <summary>
@@ -48,14 +49,15 @@ namespace WumpusTest
         /// It sets CurrentState to GAME
         /// Sets both Player and the Wumpus's Position.
         /// Plays continuous background noise.
+        /// Sets all player value to Default Value
         /// </summary>
         public void newGame()
         {
-            gs.changeCurrentState(2);
             map.GenerateCave();
             map.generateRandomPlayerPosition();
             map.generateRandomWumpusPosition();
             sound.playBackgroundMusic(Continuous.background);
+            player.initializeAllValueToStandard();
         }
 
         /// <summary>
@@ -66,11 +68,7 @@ namespace WumpusTest
         /// <returns>Map Data if GameState is GAME</returns>
         public Map getMap()
         {
-            if(gs.getCurrentState() == GameState.GAME)
-            {
-                return map;
-            }
-            else return null;
+            return map;
         }
         
         /// <summary>
@@ -80,11 +78,7 @@ namespace WumpusTest
         /// Other wise, it will return null to prohibit bad calls.</returns>
         public Player getPlayerInfo()
         {
-            if((gs.getCurrentState() == GameState.END) || (gs.getCurrentState() == GameState.GAME))
-            {
-                return player;
-            }
-            else return null;
+            return player;
         }
 
         /// <summary>
@@ -95,22 +89,19 @@ namespace WumpusTest
         /// <param name="cellNumber">Cell Number is required to be a connected room of the player's.</param>
         public void move(int cellNumber)
         {
-            if((gs.getCurrentState() == 2) && isConnectedRoomsForPlayer(cellNumber))
+            player.addTurn();
+            wumpus.addTurn();
+            map.movePlayer(cellNumber);
+            int[] room = map.getConnectedRooms(map.getWumpusPosition(), caveNumber);
+            int randomInt = random.Next(0, room.Length);
+            map.moveWumpus(randomInt);
+            if (map.getWumpusPosition() == map.getPlayerPosition())
             {
-                player.addTurn();
-                wumpus.addTurn();
-                map.movePlayer(cellNumber);
-                int[] room = map.getConnectedRooms(map.getWumpusPosition(), caveNumber);
-                int randomInt = random.Next(0, room.Length);
-                map.moveWumpus(randomInt);
-                if (map.getWumpusPosition() == map.getPlayerPosition())
-                {
-                    sound.playBackgroundMusic(Continuous.carnivalBackground);
-                }
-                else if (map.isWumpusNear())
-                {
-                    sound.playSound(soundEffects.wumpusClown);
-                }
+                sound.playBackgroundMusic(Continuous.carnivalBackground);
+            }
+            else if (map.isWumpusNear())
+            {
+                sound.playSound(soundEffects.wumpusClown);
             }
         }
 
@@ -146,5 +137,6 @@ namespace WumpusTest
             }
             return false;
         }
+    
     }
 }

@@ -17,6 +17,7 @@ namespace WumpusTest
         public Graphics()
         {
             InitializeComponent();
+            gc.newGame();
             //UpdateGraphics(cave1, cave2, cave3, bats);
         }
 

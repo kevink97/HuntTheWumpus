@@ -7,6 +7,8 @@ namespace WumpusTest
 {
     public interface IPlayer
     {
+        void initializeAllValueToStandard();
+
         void addTurn();
 
         void addGold(int add);

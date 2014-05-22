@@ -31,7 +31,6 @@ namespace WumpusTest
             Graphics graphics = new Graphics();
             graphics.Show();
             this.Hide();
-            gc.newGame();
        
         }
         private void pictureBox1_Click(object sender, EventArgs e) {

@@ -8,12 +8,18 @@ namespace WumpusTest
 {
     public class Player : IPlayer
     {
-
-        //JUST A NOTE..YOU SHOULD ADD INITIAL GOLD AND ARROWS TO MAKE SURE THIS GAME IS PLAYABLE
         private int turns;
         private int gold;
         private int arrows;
         private int score;
+
+        public void initializeAllValueToStandard()
+        {
+            turns = 0;
+            gold = 15;
+            arrows = 0;
+            score = 0;
+        }
          
         public void addTurn()
         {
