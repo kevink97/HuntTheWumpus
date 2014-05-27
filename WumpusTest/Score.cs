@@ -50,7 +50,10 @@ namespace WumpusTest
             return name + ", " + score;
         }
 
-
+        public String getScoreForList()
+        {
+            return name + " - " + score;
+        }
 
     }       
 }

@@ -39,10 +39,11 @@ namespace WumpusTest
         private Player player = new Player();
         private Wumpus wumpus = new Wumpus();
         private Map map = new Map();
-        private int caveNumber = 0; //TODO: implement caveNumber random generator
         private Sound sound = new Sound();
+        private HighScore hs = new HighScore();
         private static GameState gs = new GameState();
         private Random random = new Random();
+        private int caveNumber = 0; //TODO: implement caveNumber random generator
 
         /// <summary>
         /// Use this method to declare that the game is starting to keep track of GameState.
@@ -119,6 +120,18 @@ namespace WumpusTest
             }
             return false;
         }
+        
+        /// <summary>
+        /// Use to display high score. Will pop up a new Form.
+        /// ***Graphics*** - use it on HighScore Button.
+        /// </summary>
+        /// <param name="highscorelist">Gets String of highscorelist from 
+        /// .txt file and coverts to a human readable list to display
+        /// on to automatically.</param>
+        public void displayHighScore(String highscorelist)
+        {
+
+        }
 
         /// <summary>
         /// only for GameController's reference for ease of programming
@@ -138,5 +151,6 @@ namespace WumpusTest
             return false;
         }
     
+
     }
 }
