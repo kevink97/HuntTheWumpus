@@ -40,11 +40,8 @@ namespace WumpusTest
         {
             HighScore highscore = new HighScore();
             HighScoreDisplay hsd = new HighScoreDisplay();
-            
-            highscore.addHighScore("MYNAME", 600);
             hsd.Show();
             hsd.displayHighScores(highscore.displayHighScore());
-            //highscore.addHighScore("MYNAME", 600);
 
             highscore.updateHighScoreInFile();
         }

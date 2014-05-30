@@ -14,15 +14,15 @@ namespace WumpusTest
     class HighScore
     {
        // List<Score> listofscores = new List<Score>();
-        Score[] list = {new Score("Sammy1", 700), new Score("Sammy2", 0),
-                           new Score("Sammy3", 0),
-                           new Score("Sammy4", 0),
-                           new Score("Sammy5", 0),
-                           new Score("Sammy6", 0),
-                           new Score("Sammy7", 0),
-                           new Score("Sammy8", 0),
-                           new Score("Sammy9", 0),
-                           new Score("Sammy10", 0)};//new Score[10]; // 0 (highest) -> 9 (lowest)
+        Score[] list = {new Score("Player1", 700), new Score("Player2", 0),
+                           new Score("Player3", 0),
+                           new Score("Player4", 0),
+                           new Score("Player5", 0),
+                           new Score("Player6", 0),
+                           new Score("Player7", 0),
+                           new Score("Player8", 0),
+                           new Score("Player9", 0),
+                           new Score("Player10", 0)};//new Score[10]; // 0 (highest) -> 9 (lowest)
 
         //when game starts, high score will be initiated with past high scores from .txt file. 
         public HighScore()
