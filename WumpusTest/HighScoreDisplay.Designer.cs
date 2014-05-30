@@ -19,6 +19,7 @@
             }
             base.Dispose(disposing);
         }
+        
 
         #region Windows Form Designer generated code
 
@@ -66,7 +67,10 @@
             this.PerformLayout();
 
         }
-
+        public void displayHighScores(string listOfscores)
+        {
+            this.ListOfHighScore.Text = listOfscores;
+        }
         #endregion
 
         private System.Windows.Forms.Label HighScoreTitle;

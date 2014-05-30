@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//make non of the static. you can get all counts from the Player class
-//ONLY GETTERS....i.e. getSorroundingCavew
+
 namespace WumpusTest
 {
     //TODO: ADD VAISNHAVI'S CODE
@@ -54,10 +53,32 @@ namespace WumpusTest
         /// </summary>
         public void newGame()
         {
-            map.GenerateCave();
+            int randomCaveNumber = random.Next(5);
+            caveNumber = randomCaveNumber;
+            if(randomCaveNumber == 0)
+            {
+                map.GenerateCave();
+
+            }
+            else if(randomCaveNumber == 1)
+            {
+                map.GenerateCave2();
+            }
+            else if(randomCaveNumber == 2)
+            {
+                map.GenerateCave3();
+            }
+            else if(randomCaveNumber == 3)
+            {
+                map.GenerateCave4();
+            }
+            else
+            {
+                map.GenerateCave5();
+            }
             map.generateRandomPlayerPosition();
             map.generateRandomWumpusPosition();
-            sound.playBackgroundMusic(Continuous.background);
+            //sound.playBackgroundMusic(Continuous.background);
             player.initializeAllValueToStandard();
         }
 
@@ -71,7 +92,7 @@ namespace WumpusTest
         {
             return map;
         }
-        
+            
         /// <summary>
         /// Gets Player Object created in GameController class.
         /// </summary>
@@ -89,7 +110,7 @@ namespace WumpusTest
         /// </summary>
         /// <param name="cellNumber">Cell Number is required to be a connected room of the player's.</param>
         public void move(int cellNumber)
-        {
+        {/*
             player.addTurn();
             wumpus.addTurn();
             map.movePlayer(cellNumber);
@@ -104,6 +125,11 @@ namespace WumpusTest
             {
                 sound.playSound(soundEffects.wumpusClown);
             }
+
+            else if (map.areBatsNear())
+            {
+                sound.playSound(soundEffects.bats);
+            }*/
         }
 
         /// <summary>
@@ -120,17 +146,19 @@ namespace WumpusTest
             }
             return false;
         }
-        
-        /// <summary>
-        /// Use to display high score. Will pop up a new Form.
-        /// ***Graphics*** - use it on HighScore Button.
-        /// </summary>
-        /// <param name="highscorelist">Gets String of highscorelist from 
-        /// .txt file and coverts to a human readable list to display
-        /// on to automatically.</param>
-        public void displayHighScore(String highscorelist)
-        {
 
+        /// <summary>
+        /// use this method when shooting arrow.
+        /// </summary>
+        /// <param name="cellNumber">the cell number the arrow is being shot at</param>
+        /// <returns>true if shot at wumpus location. false if not shot at wumpus location</returns>
+        public bool shootArrow(int cellNumber)
+        {
+            if(map.getWumpusPosition() == cellNumber)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -150,7 +178,6 @@ namespace WumpusTest
             }
             return false;
         }
-    
 
     }
 }

@@ -109,20 +109,34 @@
   <ItemGroup>
     <Content Include="Image\alien.jpg" />
     <Content Include="Image\alien2.jpg" />
-    <Content Include="SoundFiles\babysneeze.wav" />
+    <Content Include="SoundFiles\Anger.wav" />
+    <Content Include="SoundFiles\babysneeze.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Image\bats.jpg" />
     <Content Include="Image\bat_background.jpg" />
     <Content Include="Image\bigVcave.jpg" />
     <Content Include="Image\cave.jpg" />
     <Content Include="Image\caveBest.jpg" />
     <Content Include="Image\caveCOLOR.jpg" />
-    <Content Include="SoundFiles\chimes.wav" />
-    <Content Include="SoundFiles\cityBackground.wav" />
+    <Content Include="SoundFiles\chimes.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SoundFiles\ChipmunksBats.wav" />
+    <Content Include="SoundFiles\cityBackground.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Image\fish.jpg" />
     <Content Include="Image\hamster.jpg" />
     <Content Include="Image\jellyfish.jpg" />
     <Content Include="Image\Winnie.jpg" />
     <Content Include="HighScoreList.txt" />
+    <Content Include="SoundFiles\EvilLaugh.wav" />
+    <Content Include="SoundFiles\Fall.wav" />
+    <Content Include="SoundFiles\JumpBounce.wav" />
+    <Content Include="SoundFiles\largeBubble.wav" />
+    <Content Include="SoundFiles\lost.wav" />
+    <Content Include="SoundFiles\ShootArrow.wav" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="stdole">

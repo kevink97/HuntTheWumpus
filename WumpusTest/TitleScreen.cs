@@ -35,6 +35,24 @@ namespace WumpusTest
         }
         private void pictureBox1_Click(object sender, EventArgs e) {
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HighScore highscore = new HighScore();
+            HighScoreDisplay hsd = new HighScoreDisplay();
+            
+            highscore.addHighScore("MYNAME", 600);
+            hsd.Show();
+            hsd.displayHighScores(highscore.displayHighScore());
+            //highscore.addHighScore("MYNAME", 600);
+
+            highscore.updateHighScoreInFile();
+        }
+
+        private void TitleScreen_Load(object sender, EventArgs e)
+        {
+
+        }
        // public void showBackground()
         //{
        //     hamster.ImageLocation = "hamster.jpg";

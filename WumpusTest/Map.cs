@@ -143,27 +143,55 @@ namespace WumpusTest
             cave4.Add(13, new int[] { 19, 7, 12 });
             cave4.Add(14, new int[] { 15, 20, 8 });
             cave4.Add(15, new int[] { 8, 10, 21 });
-            //stopped here
-            cave4.Add(16, new int[] { 21, 22, 17 });
-            cave4.Add(17, new int[] { 10, 23, 11 });
-            cave4.Add(18, new int[] { 24, 19, 12 });
-            cave4.Add(19, new int[] { 25, 18, 13 });
-            cave4.Add(20, new int[] { 21, 27, 26 });
-            cave4.Add(21, new int[] { 15, 16, 22 });
-            cave4.Add(22, new int[] { 27, 15, 22 });
-            cave4.Add(23, new int[] { 17, 29, 24 });
-            cave4.Add(24, new int[] { 19, 25, 30 });
-            cave4.Add(25, new int[] { 1, 30, 19 });
-            cave4.Add(26, new int[] { 3, 2, 20 });
-            cave4.Add(27, new int[] { 21, 22, 28 });
-            cave4.Add(28, new int[] { 5, 29, 4 });
-            cave4.Add(29, new int[] { 23, 24, 30 });
+            cave4.Add(16, new int[] { 13, 15, 17 });
+            cave4.Add(17, new int[] { 12, 23, 11 });
+            cave4.Add(18, new int[] { 24, 19, 17 });
+            cave4.Add(19, new int[] { 20, 14, 25 });
+            cave4.Add(20, new int[] { 21, 27, 19 });
+            cave4.Add(21, new int[] { 15, 16, 27 });
+            cave4.Add(22, new int[] { 28, 16, 22 });
+            cave4.Add(23, new int[] { 18, 29, 24 });
+            cave4.Add(24, new int[] { 18, 23, 30 });
+            cave4.Add(25, new int[] { 1, 30, 20 });
+            cave4.Add(26, new int[] { 3, 27, 20 });
+            cave4.Add(27, new int[] { 21, 26, 28 });
+            cave4.Add(28, new int[] { 22, 29, 4 });
+            cave4.Add(29, new int[] { 23, 5, 30 });
             cave4.Add(30, new int[] { 6, 1, 24 });
         }
 
         public void GenerateCave5()
         {
-        
+            cave5.Add(1, new int[] { 30, 7, 2 });
+            cave5.Add(2, new int[] { 3, 8, 9 });
+            cave5.Add(3, new int[] { 9, 4, 28});
+            cave5.Add(4, new int[] { 10, 5, 11 });
+            cave5.Add(5, new int[] { 29, 4, 6 });
+            cave5.Add(6, new int[] { 1, 7, 12 });
+            cave5.Add(7, new int[] { 2, 6, 13 });
+            cave5.Add(8, new int[] { 14, 2, 9 });
+            cave5.Add(9, new int[] { 10, 8, 15 });
+            cave5.Add(10, new int[] { 9, 11, 17 });
+            cave5.Add(11, new int[] { 6, 10, 5 });
+            cave5.Add(12, new int[] { 6, 13, 18 });
+            cave5.Add(13, new int[] { 19, 8, 12 });
+            cave5.Add(14, new int[] { 15, 21, 8 });
+            cave5.Add(15, new int[] { 8, 10, 14 });
+            cave5.Add(16, new int[] { 23, 15, 17 });
+            cave5.Add(17, new int[] { 12, 18, 11 });
+            cave5.Add(18, new int[] { 23, 12, 17 });
+            cave5.Add(19, new int[] { 20, 13, 25 });
+            cave5.Add(20, new int[] { 21, 27, 14 });
+            cave5.Add(21, new int[] { 15, 22, 27 });
+            cave5.Add(22, new int[] { 28, 16, 17 });
+            cave5.Add(23, new int[] { 18, 29, 24 });
+            cave5.Add(24, new int[] { 19, 23, 30 });
+            cave5.Add(25, new int[] { 1, 30, 26 });
+            cave5.Add(26, new int[] { 3, 27, 25 });
+            cave5.Add(27, new int[] { 21, 22, 28 });
+            cave5.Add(28, new int[] { 5, 29, 4 });
+            cave5.Add(29, new int[] { 23, 24, 30 });
+            cave5.Add(30, new int[] { 6, 1, 24 });
         }
 
         public void movePlayer(int cellnumber)
@@ -231,7 +259,7 @@ namespace WumpusTest
             }
         }
 
-
+        //FIXED NAMING TO FIT NEEDS
         public void generateRandomPlayerPosition()
         {
             playerPosition = random.Next(mapSize);
@@ -270,6 +298,7 @@ namespace WumpusTest
             {
                 return true;
             }
+           
             return false; 
         }
 

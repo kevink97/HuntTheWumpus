@@ -4,52 +4,72 @@ using System.Linq;
 using System.Text;
 
 namespace WumpusTest
-{    public enum Continuous {background,trivia, menu, carnivalBackground}
-     public enum soundEffects{bats, wumpusClown, movingForward, fallIntoPit, victory, babysneeze}
+{    public enum Continuous {background,trivia, menu}
+     public enum soundEffects{ChipmunksBats, EvilLaughWumpusNear, AngryWumpusFar, movingForward, JellyFishDoors, FallIntoPit, ShootArrow, lost}
     class Sound
     {
-        private WMPLib.WindowsMediaPlayer soundEffectsPlayer;
+       
+       // private WMPLib.WindowsMediaPlayer soundEffectsPlayer;
+       //public  Sound() { 
+       //  this.soundEffectsPlayer = new WMPLib.WindowsMediaPlayer();   
+       //}
 
-        public  Sound() { 
-            this.soundEffectsPlayer = new WMPLib.WindowsMediaPlayer();
-           
-            
-        }
-    
-        // Start background music
-        // Enum for multiple sound effects: menu, bats, wumpus, moving forward, falling into pit, victory 
-        // Pause background music
-        // play sound method enum, no return
-
-        // when playing background, stop, and play again.
-
-        // if statements, set URL filenames
         public void playSound(soundEffects shortsound){
           
-            if (shortsound == soundEffects.bats){
-                soundEffectsPlayer.URL = "chimes.wav";
+            if (shortsound == soundEffects.ChipmunksBats){
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("ChipmunksBats.wav");
+                player.Play();
+                //soundEffectsPlayer.URL = "ChipmunksBats.wav";
+            } else if (shortsound == soundEffects.EvilLaughWumpusNear){
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("EvilLaugh.wav");
+                player.Play();
+       
+            } else if (shortsound == soundEffects.AngryWumpusFar)
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("Anger.wav");
+                player.Play();
+
+            }else if (shortsound == soundEffects.JellyFishDoors)
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("JumpBounce.wav");
+                player.Play();
+
+            }else if (shortsound == soundEffects.movingForward)
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("largeBubble.wav");
+                player.Play();
+               
+            }else if (shortsound == soundEffects.FallIntoPit)
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("Fall.wav");
+                player.Play();
+             
+            }else if (shortsound == soundEffects.ShootArrow)
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("ShootArrow.wav");
+                player.Play();
+               
+            } else if (shortsound == soundEffects.lost){
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("lost.wav");
+                player.Play();
+                
             }
-
-            if (shortsound == soundEffects.wumpusClown){
-                soundEffectsPlayer.URL = "tada.wav";
-            }
-
-            if (shortsound == soundEffects.babysneeze) {
-                soundEffectsPlayer.URL = "babysneeze";
-            }
-
-
+          
         }
 
-        public void playBackgroundMusic(Continuous background){
-            
-            if (background == Continuous.carnivalBackground){
-                soundEffectsPlayer.URL = "carnivalBackground";
-            }
-        
+         WMPLib.WindowsMediaPlayer Player;
+
+        public void PlayFile(String url)
+        {
+        Player = new WMPLib.WindowsMediaPlayer();
+        Player.URL = url;
+        Player.controls.play();
         }
 
-        // 
+         private void button10_Click(object sender, System.EventArgs e) {
+             Player.URL = "Metal Gear Solid 4 - Encounter - Extension (Background).wav";
+        }
 
     }
-}
+    }
+

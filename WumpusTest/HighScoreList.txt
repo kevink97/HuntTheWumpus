@@ -1,1 +1,10 @@
-none-0|none-0|none-0|none-0|none-0|none-0|none-0|none-0|none-0|none-0|
+Josh,213
+Fred,50
+Scooby,430
+name4,560
+name5,20
+name6,50
+name7,460
+name8,900
+name9,230
+name10,30

@@ -53,6 +53,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Scores";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -73,7 +74,7 @@
             this.button2.Text = "Instruction";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // TitleScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,8 +83,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "TitleScreen";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.TitleScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
