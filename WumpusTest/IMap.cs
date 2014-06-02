@@ -9,13 +9,13 @@ namespace WumpusTest
     {
         void GenerateCave();
 
-        void GenerateCave2();
+        //void GenerateCave2();
 
-        void GenerateCave3();
+        //void GenerateCave3();
 
-        void GenerateCave4();
+        //void GenerateCave4();
 
-        void GenerateCave5();
+        //void GenerateCave5();
 
         void movePlayer(int cellnumber);
 
@@ -27,11 +27,11 @@ namespace WumpusTest
 
         int[] getConnectedRooms(int room, int caveNumber);
 
-        bool isPositionHazardous();
+        //bool isPositionHazardous();
 
         int getPlayerPosition();
 
-        int getPitPosition();
+        //int getPitPosition();
 
         int getWumpusPosition();
 
@@ -41,9 +41,9 @@ namespace WumpusTest
 
         void generateRandomPlayerPosition();
 
-        void generatePit();
+        //void generatePit();
 
-        void generateBats(); 
+        //void generateBats(); 
 
    }
 }

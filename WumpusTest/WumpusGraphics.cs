@@ -15,7 +15,7 @@ namespace WumpusTest
         public void drawWumpus() {
 
             //System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-           // System.Drawing.Graphics formGraphics;
+           // System.Drawing.InGame formGraphics;
            // formGraphics = this.form.CreateGraphics();
             //formGraphics.FillRectangle(myBrush, new System.Drawing.Rectangle(0, 0, 10, 10));
            // myBrush.Dispose();

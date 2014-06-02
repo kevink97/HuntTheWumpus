@@ -11,6 +11,8 @@ namespace WumpusTest
 
         void addTurn();
 
+        void addScore(int addedScore);
+
         void addGold(int add);
 
         int getScore();

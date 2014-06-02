@@ -16,9 +16,14 @@ namespace WumpusTest
         public void initializeAllValueToStandard()
         {
             turns = 0;
-            gold = 15;
+            gold = 50;
             arrows = 0;
             score = 0;
+        }
+
+        public void addScore(int addedScore)
+        {
+            score += addedScore;
         }
          
         public void addTurn()

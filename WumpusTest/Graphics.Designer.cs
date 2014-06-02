@@ -1,6 +1,6 @@
 ﻿namespace WumpusTest
 {
-    partial class Graphics
+    partial class InGame
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Graphics));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InGame));
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.cave2 = new System.Windows.Forms.Button();
             this.cave3 = new System.Windows.Forms.Button();
@@ -45,7 +45,9 @@
             this.CurrentRoomNum = new System.Windows.Forms.Label();
             this.player = new System.Windows.Forms.PictureBox();
             this.wumpus = new System.Windows.Forms.PictureBox();
-            this.shootArrow = new System.Windows.Forms.Button();
+            this.shoot1 = new System.Windows.Forms.Button();
+            this.shoot2 = new System.Windows.Forms.Button();
+            this.shoot3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pit)).BeginInit();
@@ -61,12 +63,13 @@
             this.pictureBox4.Size = new System.Drawing.Size(618, 571);
             this.pictureBox4.TabIndex = 14;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // cave2
             // 
             this.cave2.Location = new System.Drawing.Point(224, 53);
             this.cave2.Name = "cave2";
-            this.cave2.Size = new System.Drawing.Size(150, 150);
+            this.cave2.Size = new System.Drawing.Size(150, 42);
             this.cave2.TabIndex = 15;
             this.cave2.UseVisualStyleBackColor = true;
             this.cave2.Click += new System.EventHandler(this.cave2_Click);
@@ -75,7 +78,7 @@
             // 
             this.cave3.Location = new System.Drawing.Point(405, 53);
             this.cave3.Name = "cave3";
-            this.cave3.Size = new System.Drawing.Size(150, 150);
+            this.cave3.Size = new System.Drawing.Size(150, 42);
             this.cave3.TabIndex = 17;
             this.cave3.UseVisualStyleBackColor = true;
             this.cave3.Click += new System.EventHandler(this.cave3_Click);
@@ -84,7 +87,7 @@
             // 
             this.cave1.Location = new System.Drawing.Point(49, 53);
             this.cave1.Name = "cave1";
-            this.cave1.Size = new System.Drawing.Size(150, 150);
+            this.cave1.Size = new System.Drawing.Size(150, 42);
             this.cave1.TabIndex = 18;
             this.cave1.UseVisualStyleBackColor = true;
             this.cave1.Click += new System.EventHandler(this.cave1_Click_1);
@@ -112,7 +115,9 @@
             // arrowCount
             // 
             this.arrowCount.AutoSize = true;
+            this.arrowCount.BackColor = System.Drawing.Color.Transparent;
             this.arrowCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrowCount.ForeColor = System.Drawing.Color.White;
             this.arrowCount.Location = new System.Drawing.Point(8, 9);
             this.arrowCount.Name = "arrowCount";
             this.arrowCount.Size = new System.Drawing.Size(45, 20);
@@ -123,7 +128,8 @@
             // 
             this.score.AutoSize = true;
             this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score.Location = new System.Drawing.Point(527, 12);
+            this.score.ForeColor = System.Drawing.Color.White;
+            this.score.Location = new System.Drawing.Point(452, 12);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(51, 20);
             this.score.TabIndex = 23;
@@ -134,7 +140,8 @@
             // 
             this.gold.AutoSize = true;
             this.gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gold.Location = new System.Drawing.Point(401, 12);
+            this.gold.ForeColor = System.Drawing.Color.White;
+            this.gold.Location = new System.Drawing.Point(272, 12);
             this.gold.Name = "gold";
             this.gold.Size = new System.Drawing.Size(43, 20);
             this.gold.TabIndex = 24;
@@ -143,7 +150,6 @@
             // 
             // pit
             // 
-            this.pit.Image = ((System.Drawing.Image)(resources.GetObject("pit.Image")));
             this.pit.Location = new System.Drawing.Point(-574, 391);
             this.pit.Name = "pit";
             this.pit.Size = new System.Drawing.Size(646, 619);
@@ -156,7 +162,8 @@
             // 
             this.CurrentRoomNum.AutoSize = true;
             this.CurrentRoomNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentRoomNum.Location = new System.Drawing.Point(469, 533);
+            this.CurrentRoomNum.ForeColor = System.Drawing.Color.White;
+            this.CurrentRoomNum.Location = new System.Drawing.Point(446, 530);
             this.CurrentRoomNum.Name = "CurrentRoomNum";
             this.CurrentRoomNum.Size = new System.Drawing.Size(109, 20);
             this.CurrentRoomNum.TabIndex = 26;
@@ -165,7 +172,6 @@
             // 
             // player
             // 
-            this.player.Image = ((System.Drawing.Image)(resources.GetObject("player.Image")));
             this.player.Location = new System.Drawing.Point(175, 209);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(269, 341);
@@ -174,7 +180,6 @@
             // 
             // wumpus
             // 
-            this.wumpus.Image = ((System.Drawing.Image)(resources.GetObject("wumpus.Image")));
             this.wumpus.Location = new System.Drawing.Point(106, 209);
             this.wumpus.Name = "wumpus";
             this.wumpus.Size = new System.Drawing.Size(397, 308);
@@ -183,22 +188,41 @@
             this.wumpus.Visible = false;
             this.wumpus.Click += new System.EventHandler(this.wumpus_Click);
             // 
-            // shootArrow
+            // shoot1
             // 
-            this.shootArrow.Location = new System.Drawing.Point(175, 9);
-            this.shootArrow.Name = "shootArrow";
-            this.shootArrow.Size = new System.Drawing.Size(75, 23);
-            this.shootArrow.TabIndex = 29;
-            this.shootArrow.Text = "Shoot Arrows";
-            this.shootArrow.UseVisualStyleBackColor = true;
-            this.shootArrow.Click += new System.EventHandler(this.shootArrow_Click);
+            this.shoot1.Location = new System.Drawing.Point(49, 119);
+            this.shoot1.Name = "shoot1";
+            this.shoot1.Size = new System.Drawing.Size(150, 23);
+            this.shoot1.TabIndex = 30;
+            this.shoot1.UseVisualStyleBackColor = true;
+            this.shoot1.Click += new System.EventHandler(this.shoot1_Click);
             // 
-            // Graphics
+            // shoot2
+            // 
+            this.shoot2.Location = new System.Drawing.Point(224, 119);
+            this.shoot2.Name = "shoot2";
+            this.shoot2.Size = new System.Drawing.Size(150, 23);
+            this.shoot2.TabIndex = 31;
+            this.shoot2.UseVisualStyleBackColor = true;
+            this.shoot2.Click += new System.EventHandler(this.shoot2_Click);
+            // 
+            // shoot3
+            // 
+            this.shoot3.Location = new System.Drawing.Point(405, 119);
+            this.shoot3.Name = "shoot3";
+            this.shoot3.Size = new System.Drawing.Size(150, 23);
+            this.shoot3.TabIndex = 32;
+            this.shoot3.UseVisualStyleBackColor = true;
+            this.shoot3.Click += new System.EventHandler(this.shoot3_Click);
+            // 
+            // InGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 562);
-            this.Controls.Add(this.shootArrow);
+            this.Controls.Add(this.shoot3);
+            this.Controls.Add(this.shoot2);
+            this.Controls.Add(this.shoot1);
             this.Controls.Add(this.wumpus);
             this.Controls.Add(this.player);
             this.Controls.Add(this.CurrentRoomNum);
@@ -212,7 +236,7 @@
             this.Controls.Add(this.cave3);
             this.Controls.Add(this.cave2);
             this.Controls.Add(this.pictureBox4);
-            this.Name = "Graphics";
+            this.Name = "InGame";
             this.Text = "s";
             this.Load += new System.EventHandler(this.Graphics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -240,6 +264,8 @@
         private System.Windows.Forms.Label CurrentRoomNum;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.PictureBox wumpus;
-        private System.Windows.Forms.Button shootArrow;
+        private System.Windows.Forms.Button shoot1;
+        private System.Windows.Forms.Button shoot2;
+        private System.Windows.Forms.Button shoot3;
     }
 }

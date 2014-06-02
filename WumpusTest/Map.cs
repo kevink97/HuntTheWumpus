@@ -10,20 +10,28 @@ namespace WumpusTest
         
         int playerPosition;
         const int mapSize = 30;
-        int batPosition;
-        int pitPosition;
+        //int batPosition; FIX BACK
+        //int pitPosition; FIX BACK
+        int[] batPosition;
+        int[] pitPosition;
         int wumpusPosition;
         //added private member variable caveNumber to specify which cave when getting connected rooms
-        int caveNumber; 
         //added new private member variable Random to ensure randomness
         private Random random = new Random();
+        /* FIX BACK
         Dictionary<int, int[]> cave = new Dictionary<int, int[]>();
         Dictionary<int, int[]> cave2 = new Dictionary<int, int[]>();
         Dictionary<int, int[]> cave3 = new Dictionary<int, int[]>();
         Dictionary<int, int[]> cave4 = new Dictionary<int, int[]>();
         Dictionary<int, int[]> cave5 = new Dictionary<int, int[]>();
-        
-        
+        */
+        Dictionary<int, int[]> cave = new Dictionary<int,int[]>();
+        /*
+        Dictionary<int, int[]> cave2;
+        Dictionary<int, int[]> cave3;
+        Dictionary<int, int[]> cave4;
+        Dictionary<int, int[]> cave5;
+        */
         public void GenerateCave()
         {
             cave.Add(1, new int[] { 30, 2, 7 });
@@ -56,8 +64,60 @@ namespace WumpusTest
             cave.Add(28, new int[] { 5, 29, 27 });
             cave.Add(29, new int[] { 23, 24, 5 });
             cave.Add(30, new int[] { 6, 25, 24 });
-        }
 
+            List<int> randomizedRoomList = new List<int>();
+            for (int i = 1; i <= 30; i++)
+            {
+                randomizedRoomList.Add(i);
+            }
+            //random pit position (2)
+            pitPosition = new int[2];
+            for (int i = 0; i < 2; i++)
+            {
+                int x = random.Next(0, randomizedRoomList.Count);
+                pitPosition[i] = randomizedRoomList[x];
+                //randomizedRoomList.Remove(x);
+            }
+            //random bat position (2)
+            batPosition = new int[2];
+            for(int i = 0; i < 2; i++)
+            {
+                int x = random.Next(0, randomizedRoomList.Count);
+                if(x != pitPosition[0] && x != pitPosition[1])
+                {
+                    batPosition[i] = randomizedRoomList[x];
+                }
+                else
+                {
+                    i--;
+                }
+                //randomizedRoomList.Remove(x);
+            }
+
+            //random wumpus position
+            bool wumpusOK = false;
+            while(!wumpusOK)
+            {
+                int n = random.Next(0, randomizedRoomList.Count);
+                if((n != pitPosition[0] && n != pitPosition[1]) && (n != batPosition[0] && n != batPosition[1] ))
+                {
+                    wumpusPosition = n;
+                    wumpusOK = true;
+                }
+            }
+
+            bool playerOK = false;
+            while(!playerOK)
+            {
+                int x = random.Next(0, randomizedRoomList.Count);
+                if ((x != pitPosition[0] && x != pitPosition[1]) && (x != batPosition[0] && x != batPosition[1]))
+                {
+                    playerPosition = x;
+                    playerOK = true;
+                }
+            }
+        }
+        /*
         public void GenerateCave2()
         {
             cave2.Add(1, new int[] { 25, 26, 2 });
@@ -193,7 +253,8 @@ namespace WumpusTest
             cave5.Add(29, new int[] { 23, 24, 30 });
             cave5.Add(30, new int[] { 6, 1, 24 });
         }
-
+        */
+        
         public void movePlayer(int cellnumber)
         {
             playerPosition = cellnumber;
@@ -207,7 +268,7 @@ namespace WumpusTest
         
         public bool isWumpusNear()
         {
-            int[] connected = getConnectedRooms(playerPosition, caveNumber);
+            int[] connected = getConnectedRooms(playerPosition, 1);
             for (int i = 0; i < connected.Length; i++)
             {
                 if (getWumpusPosition() == connected[i])
@@ -220,10 +281,10 @@ namespace WumpusTest
 
         public bool areBatsNear()
         {
-            int[] connected = getConnectedRooms(playerPosition, caveNumber);
+            int[] connected = getConnectedRooms(playerPosition, 1);
             for (int i = 0; i < connected.Length; i++)
             {
-                if (getBatPosition() == connected[i])
+                if ((getBatPosition()[0] == connected[i]) || (getBatPosition()[1] == connected[i]))
                 {
                     return true;
                 }
@@ -233,10 +294,10 @@ namespace WumpusTest
 
         public bool isPitNear()
         {
-            int[] connected = getConnectedRooms(playerPosition, caveNumber);
+            int[] connected = getConnectedRooms(playerPosition, 1);
             for (int i = 0; i < connected.Length; i++)
             {
-                if (getPitPosition() == connected[i])
+                if ((getPitPosition()[0] == connected[i]) || (getPitPosition()[1] == connected[i]))
                 {
                     return true;
                 }
@@ -244,10 +305,10 @@ namespace WumpusTest
             return false; 
         }
 
-        //ADDED THIS TO POSITION WUMPUS IN THE BEGGINING
+        //ADDED THIS TO POSITION WUMPUS IN THE BEGGINING/MIDDLE OF GAME AFTER TRIVIA
         public void generateRandomWumpusPosition()
         {
-            Boolean loop = true;
+            bool loop = true;
             while(loop)
             {
                 int randomInt = random.Next(mapSize);
@@ -265,14 +326,17 @@ namespace WumpusTest
             playerPosition = random.Next(mapSize);
         }
 
-
-
         public int[] getConnectedRooms(int room, int caveNumber)
         {
             if (caveNumber == 1)
             {
                 return cave[room];
             }
+            else
+            {
+                return cave[room];
+            }
+            /*
             else if (caveNumber == 2)
             {
                 return cave2[room];
@@ -289,9 +353,10 @@ namespace WumpusTest
             {
                 return cave5[room];
             }
+             */
         }
 
-
+        /*
         public bool isPositionHazardous()
         {
             if (playerPosition == getBatPosition() || playerPosition == getPitPosition())
@@ -301,12 +366,11 @@ namespace WumpusTest
            
             return false; 
         }
-
-        public int getBatPosition()
+        */
+        public int[] getBatPosition()
         {
             return batPosition; 
         }
-
 
         public int getWumpusPosition()
         {
@@ -319,11 +383,46 @@ namespace WumpusTest
             return playerPosition;
         }
 
-        public int getPitPosition()
+        public int[] getPitPosition()
         {
             return pitPosition;
         }
+        
+        public bool isBatWithPlayer()
+        {
+            for(int x = 0; x < getBatPosition().Length; x++)
+            {
+                if(getBatPosition()[x] == getPlayerPosition())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        public bool isWumpusWithPlayer()
+        {
+            if(getWumpusPosition() == getPlayerPosition())
+            {
+                return true;
+
+            }
+            return false;
+        }
+
+        public bool isPitWithPlayer()
+        {
+            for(int x = 0; x< getPitPosition().Length; x++)
+            {
+                if(getPitPosition()[x] == getPlayerPosition())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /*
         public void generateBats()
         {
             batPosition = random.Next(mapSize);
@@ -332,7 +431,7 @@ namespace WumpusTest
         {
             pitPosition = random.Next(mapSize);
         }
-
+        */
        
     }
 

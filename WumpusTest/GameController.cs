@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace WumpusTest
 {
@@ -53,8 +55,10 @@ namespace WumpusTest
         /// </summary>
         public void newGame()
         {
-            int randomCaveNumber = random.Next(5);
-            caveNumber = randomCaveNumber;
+            //int randomCaveNumber = random.Next(5);
+            //caveNumber = randomCaveNumber;
+            map.GenerateCave();
+            /*
             if(randomCaveNumber == 0)
             {
                 map.GenerateCave();
@@ -76,10 +80,16 @@ namespace WumpusTest
             {
                 map.GenerateCave5();
             }
+             */
             map.generateRandomPlayerPosition();
             map.generateRandomWumpusPosition();
             //sound.playBackgroundMusic(Continuous.background);
             player.initializeAllValueToStandard();
+        }
+
+        public HighScore getHighScore()
+        {
+            return hs;
         }
 
         /// <summary>

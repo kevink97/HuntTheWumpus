@@ -14,7 +14,8 @@ namespace WumpusTest
     class HighScore
     {
        // List<Score> listofscores = new List<Score>();
-        Score[] list = {new Score("Player1", 700), new Score("Player2", 0),
+        public static String name;
+        public static Score[] list = {new Score("Player1", 700), new Score("Player2", 0),
                            new Score("Player3", 0),
                            new Score("Player4", 0),
                            new Score("Player5", 0),
@@ -34,7 +35,7 @@ namespace WumpusTest
             //UPDATE HIGH SCORE --> END OF GAME
             //CHECK UPDATE HIGH SCORE
             // 
-          String line = ""; //parse the result into an array of Score and store it in the Score[] list already initiated as a member varaible.
+          //String line = ""; //parse the result into an array of Score and store it in the Score[] list already initiated as a member varaible.
           /*try //I dunno if this works either
           {
               using (StreamReader sr = new StreamReader("HighScoreList.txt"))
@@ -81,7 +82,7 @@ namespace WumpusTest
                     update += "none,0";
                 }
             }
-            string path2 = @"HighScoreList.txt";
+            //string path2 = @"HighScoreList.txt";
             TextWriter tw = new StreamWriter(@"HighSchoolList.txt");
 
             // write a line of text to the file
@@ -92,7 +93,7 @@ namespace WumpusTest
             //File.AppendAllText(path2, update); //CHECK IF THIS WORKS...CUZ I DUNNO
         }
 
-            public String displayHighScore()
+            public static String displayHighScore()
         {
             
             String test = "";
@@ -110,7 +111,7 @@ namespace WumpusTest
         /// </summary>
         /// <param name="name">name of the player</param>
         /// <param name="score">score earned by the player</param>
-        public void addHighScore(String name, int score)
+        public void addHighScore(int score)
         {
             //create new score object with score name
             Score newscore = new Score(name, score);

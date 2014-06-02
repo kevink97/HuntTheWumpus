@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace WumpusTest
 {
@@ -16,7 +17,6 @@ namespace WumpusTest
         {
             InitializeComponent();
             //showBackground();
-            Graphics graphics = new Graphics();
         }
 
         private void ConstructorButton_Click(object sender, EventArgs e)
@@ -28,8 +28,10 @@ namespace WumpusTest
         {
             //WumpusGraphics graphics = new WumpusGraphics(this);
            // graphics.drawWumpus();
-            Graphics graphics = new Graphics();
+            InGame graphics = new InGame();
             graphics.Show();
+            string response = Interaction.InputBox("Enter your name:", "Name", "firstName lastName", 0, 0);
+            HighScore.name = response;
             this.Hide();
        
         }
@@ -38,17 +40,26 @@ namespace WumpusTest
 
         private void button3_Click(object sender, EventArgs e)
         {
-            HighScore highscore = new HighScore();
             HighScoreDisplay hsd = new HighScoreDisplay();
             hsd.Show();
-            hsd.displayHighScores(highscore.displayHighScore());
+            hsd.displayHighScores(HighScore.displayHighScore());
 
-            highscore.updateHighScoreInFile();
+            //highscore.updateHighScoreInFile();
         }
 
         private void TitleScreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var message = MessageBox.Show("Sorry judges. Maybe Next Time.");
         }
        // public void showBackground()
         //{

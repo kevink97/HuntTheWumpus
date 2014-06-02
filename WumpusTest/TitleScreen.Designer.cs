@@ -44,6 +44,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1324, 602);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // button3
             // 
@@ -73,6 +74,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Instruction";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // TitleScreen
             // 
@@ -84,7 +86,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "TitleScreen";
-            this.Text = "Form1";
+            this.Text = "Main Screen";
             this.Load += new System.EventHandler(this.TitleScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
