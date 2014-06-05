@@ -308,14 +308,14 @@ namespace WumpusTest
         //ADDED THIS TO POSITION WUMPUS IN THE BEGGINING/MIDDLE OF GAME AFTER TRIVIA
         public void generateRandomWumpusPosition()
         {
-            bool loop = true;
-            while(loop)
+            bool playerOK = false;
+            while (!playerOK)
             {
-                int randomInt = random.Next(mapSize);
-                if(getPlayerPosition() != randomInt)
+                int x = random.Next(1, 30);
+                if ((x != pitPosition[0] && x != pitPosition[1]) && (x != batPosition[0] && x != batPosition[1]) && (x != playerPosition))
                 {
-                    wumpusPosition = randomInt;
-                    break;
+                    wumpusPosition = x;
+                    playerOK = true;
                 }
             }
         }

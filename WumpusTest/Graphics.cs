@@ -80,18 +80,27 @@ namespace WumpusTest
 
             if(gc.getMap().isWumpusWithPlayer())
             {
+                shark.BringToFront();
+                shark.Visible = true;
+                var meesage = MessageBox.Show("YOU CANT FIGHT HIM :(\nhe is too strong.\nWumpus will run away.");
+                gc.getMap().generateRandomWumpusPosition();
+                shark.Visible = false;
+                update();
+                /*TRIVIA?
                 var message = MessageBox.Show("YOU ARE WITH THE invisible WUMPUS...OH NO D:");
 
                 
                 TriviaForm1 trivia = new TriviaForm1();
                 trivia.ShowDialog();
                 bool wonTrivia = trivia.WonGame;
-                
+                */
                 //TODO: implement a way to pop up trivia.
             }
             if(gc.getMap().isPitWithPlayer())
             {
-                var message = MessageBox.Show("ouchie..you died in the invisible PIT :( \nGame Over..sorry");
+                label1.BringToFront();
+                label1.Visible = true;
+                var message = MessageBox.Show("ouchie..you died in the PIT :( \nGame Over..sorry");
                 TitleScreen form = new TitleScreen();
                 gc.getHighScore().addHighScore(gc.getPlayerInfo().getScore());
                 form.Show();
@@ -159,6 +168,12 @@ namespace WumpusTest
             arrowt2.BackColor = Color.Transparent;
             arrowt3.Parent = background;
             arrowt3.BackColor = Color.Transparent;
+            label1.Parent = background;
+            label1.BackColor = Color.Transparent;
+            label1.Visible = false;
+            shark.Parent = background;
+            shark.BackColor = Color.Transparent;
+            shark.Visible = false;
         }
 
         /*
@@ -193,33 +208,6 @@ namespace WumpusTest
 
         }
 
-        private void cave1_Click_1(object sender, EventArgs e)
-        {
-            //gc.move(Convert.ToInt32(cave1.Text));
-            //gc.move(surroundingRoom[2]);
-            gc.getMap().movePlayer(surroundingRoom[0]);
-            gc.getPlayerInfo().addScore(20);
-            update();
-        }
-
-        private void cave2_Click(object sender, EventArgs e)
-        {
-            //gc.move(Convert.ToInt32(cave2.Text));
-            //gc.move(surroundingRoom[0]);
-            gc.getMap().movePlayer(surroundingRoom[1]);
-            gc.getPlayerInfo().addScore(20);
-            update();
-        }
-
-        private void cave3_Click(object sender, EventArgs e)
-        {
-            //gc.move(Convert.ToInt32(cave3.Text));
-            ///gc.move(surroundingRoom[1]);
-            gc.getMap().movePlayer(surroundingRoom[2]);
-            gc.getPlayerInfo().addScore(20);
-            update();
-        }
-
         private void score_Click(object sender, EventArgs e)
         {
         }
@@ -247,6 +235,11 @@ namespace WumpusTest
         {
             gc.getMap().movePlayer(surroundingRoom[0]);
             gc.getPlayerInfo().addScore(20);
+            int x = rand.Next(1, 5);
+            if (x == 3)
+            {
+                gc.getPlayerInfo().addGold(100);
+            }
             update();
         }
 
@@ -254,6 +247,11 @@ namespace WumpusTest
         {
             gc.getMap().movePlayer(surroundingRoom[1]);
             gc.getPlayerInfo().addScore(20);
+            int x = rand.Next(1, 5);
+            if (x == 3)
+            {
+                gc.getPlayerInfo().addGold(100);
+            }
             update();
         }
 
@@ -261,6 +259,11 @@ namespace WumpusTest
         {
             gc.getMap().movePlayer(surroundingRoom[2]);
             gc.getPlayerInfo().addScore(20);
+            int x = rand.Next(1, 5);
+            if (x == 3)
+            {
+                gc.getPlayerInfo().addGold(100);
+            }
             update();
         }
 
@@ -332,6 +335,11 @@ namespace WumpusTest
                 var message = MessageBox.Show("You do not have any arrows");
             }
             update();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

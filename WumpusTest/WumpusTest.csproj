@@ -124,6 +124,9 @@
     <None Include="Image\underwaterCaves.png" />
     <None Include="Resources\Nemo1.png" />
     <None Include="Resources\underwaterCaves.png" />
+    <None Include="Resources\whirlpool.png" />
+    <None Include="Resources\whirlpool1.png" />
+    <None Include="Resources\shark.png" />
     <Content Include="SoundFiles\Anger.wav" />
     <Content Include="SoundFiles\babysneeze.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

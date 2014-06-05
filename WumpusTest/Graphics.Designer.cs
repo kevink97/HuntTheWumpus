@@ -42,6 +42,8 @@
             this.arrowt1 = new System.Windows.Forms.Label();
             this.arrowt2 = new System.Windows.Forms.Label();
             this.arrowt3 = new System.Windows.Forms.Label();
+            this.shark = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.background = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
@@ -177,6 +179,23 @@
             this.arrowt3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.arrowt3.Click += new System.EventHandler(this.arrowt3_Click);
             // 
+            // shark
+            // 
+            this.shark.Image = global::WumpusTest.Properties.Resources.shark;
+            this.shark.Location = new System.Drawing.Point(405, 224);
+            this.shark.Name = "shark";
+            this.shark.Size = new System.Drawing.Size(168, 99);
+            this.shark.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.Image = global::WumpusTest.Properties.Resources.whirlpool1;
+            this.label1.Location = new System.Drawing.Point(240, 260);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(345, 113);
+            this.label1.TabIndex = 33;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // background
             // 
             this.background.Image = global::WumpusTest.Properties.Resources.underwaterCaves2;
@@ -193,6 +212,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 562);
+            this.Controls.Add(this.shark);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.arrowt3);
             this.Controls.Add(this.arrowt2);
             this.Controls.Add(this.arrowt1);
@@ -228,5 +249,7 @@
         private System.Windows.Forms.Label arrowt1;
         private System.Windows.Forms.Label arrowt2;
         private System.Windows.Forms.Label arrowt3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label shark;
     }
 }

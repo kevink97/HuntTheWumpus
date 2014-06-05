@@ -113,6 +113,16 @@ namespace WumpusTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap shark {
+            get {
+                object obj = ResourceManager.GetObject("shark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap underwaterCaves {
             get {
                 object obj = ResourceManager.GetObject("underwaterCaves", resourceCulture);
@@ -136,6 +146,26 @@ namespace WumpusTest.Properties {
         internal static System.Drawing.Bitmap underwaterCaves2 {
             get {
                 object obj = ResourceManager.GetObject("underwaterCaves2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whirlpool {
+            get {
+                object obj = ResourceManager.GetObject("whirlpool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap whirlpool1 {
+            get {
+                object obj = ResourceManager.GetObject("whirlpool1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
