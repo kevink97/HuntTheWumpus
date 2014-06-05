@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cave.cs" />
     <Compile Include="Class4.cs" />
     <Compile Include="GameController.cs" />
     <Compile Include="HighScore.cs" />
@@ -71,8 +70,6 @@
     <Compile Include="Graphics.Designer.cs">
       <DependentUpon>Graphics.cs</DependentUpon>
     </Compile>
-    <Compile Include="ICave.cs" />
-    <Compile Include="IMap.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
@@ -103,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +115,15 @@
   <ItemGroup>
     <Content Include="Image\alien.jpg" />
     <Content Include="Image\alien2.jpg" />
+    <Content Include="Image\Arrow.png" />
+    <None Include="Resources\Arrow.png" />
+    <None Include="Resources\JellyfisDoors.jpg" />
+    <None Include="Resources\Menu.jpg" />
+    <None Include="Resources\Nemo1.jpg" />
+    <None Include="Resources\underwaterCaves.jpg" />
+    <None Include="Image\underwaterCaves.png" />
+    <None Include="Resources\Nemo1.png" />
+    <None Include="Resources\underwaterCaves.png" />
     <Content Include="SoundFiles\Anger.wav" />
     <Content Include="SoundFiles\babysneeze.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

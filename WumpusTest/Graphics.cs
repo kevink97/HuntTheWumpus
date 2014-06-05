@@ -24,29 +24,28 @@ namespace WumpusTest
             gc.newGame();
             
             var pos = this.PointToScreen(arrowCount.Location);
-            pos = pictureBox4.PointToClient(pos);
-            arrowCount.Parent = pictureBox4;
+            pos = background.PointToClient(pos);
+            arrowCount.Parent = background;
             arrowCount.Location = pos;
             arrowCount.BackColor = Color.Transparent;
             
             var pos2 = this.PointToScreen(gold.Location);
-            pos2 = pictureBox4.PointToClient(pos2);
-            gold.Parent = pictureBox4;
+            pos2 = background.PointToClient(pos2);
+            gold.Parent = background;
             gold.Location = pos2;
             gold.BackColor = Color.Transparent;
             
             var pos3 = this.PointToScreen(score.Location);
-            pos3 = pictureBox4.PointToClient(pos3);
-            score.Parent = pictureBox4;
+            pos3 = background.PointToClient(pos3);
+            score.Parent = background;
             score.Location = pos3;
             score.BackColor = Color.Transparent;
 
             var pos4 = this.PointToScreen(CurrentRoomNum.Location);
-            pos4 = pictureBox4.PointToClient(pos4);
-            CurrentRoomNum.Parent = pictureBox4;
+            pos4 = background.PointToClient(pos4);
+            CurrentRoomNum.Parent = background;
             CurrentRoomNum.Location = pos4;
             CurrentRoomNum.BackColor = Color.Transparent;
-
 
             update();
             //UpdateGraphics(cave1, cave2, cave3, bats);
@@ -63,18 +62,17 @@ namespace WumpusTest
             int goldVal = gc.getPlayerInfo().getGold();
             int arrowVal = gc.getPlayerInfo().getArrows();
 
-            cave1.Text = cave1Int.ToString();
-            cave2.Text = cave2Int.ToString();
-            cave3.Text = cave3Int.ToString();
+            cavet1.Text = cave1Int.ToString();
+            cavet2.Text = cave2Int.ToString();
+            cavet3.Text = cave3Int.ToString();
             score.Text = "score: " + scoreVal.ToString();
             gold.Text = "gold: " + goldVal.ToString();
             arrowCount.Text = "arrows: " + arrowVal.ToString();
             const String shootT = "shoot at: ";
-            shoot1.Text = shootT + cave1Int.ToString();
-            shoot2.Text = shootT + cave2Int.ToString();
-            shoot3.Text = shootT + cave3Int.ToString();
+            arrowt1.Text = shootT + cave1Int.ToString();
+            arrowt2.Text = shootT + cave2Int.ToString();
+            arrowt3.Text = shootT + cave3Int.ToString();
             CurrentRoomNum.Text = "Current Room: " + currentRoom;
-
             Console.WriteLine("pit: " + printArray(gc.getMap().getPitPosition()));
             Console.WriteLine("bat: " + printArray(gc.getMap().getBatPosition()));
             Console.WriteLine("wumpus: " + gc.getMap().getWumpusPosition().ToString());
@@ -93,11 +91,19 @@ namespace WumpusTest
             }
             if(gc.getMap().isPitWithPlayer())
             {
-                var message = MessageBox.Show("ouchie..you died in the invisible PIT :(");
+                var message = MessageBox.Show("ouchie..you died in the invisible PIT :( \nGame Over..sorry");
+                TitleScreen form = new TitleScreen();
+                gc.getHighScore().addHighScore(gc.getPlayerInfo().getScore());
+                form.Show();
+                form.Activate();
+                this.Hide();
             }
             if(gc.getMap().isBatWithPlayer())
             {
-                var message = MessageBox.Show("watch out..there are invisible bats.");
+                gc.getMap().generateRandomPlayerPosition();
+                String position = gc.getMap().getPlayerPosition().ToString();
+                var message = MessageBox.Show("watch out..there are invisible bats.\nyou will now be teleported to: cave " + position);
+                update();
             }
             if(gc.getMap().areBatsNear())
             {
@@ -127,7 +133,7 @@ namespace WumpusTest
         {
             if(gc.getMap().isPitNear())
             {
-                var x = MessageBox.Show("I smell a draft!");
+                var x = MessageBox.Show("I smell a pit!");
             }
             if (gc.getMap().isWumpusNear())
             {
@@ -141,15 +147,24 @@ namespace WumpusTest
 
         private void Graphics_Load(object sender, EventArgs e)
         {
-
+            cavet1.Parent = background;
+            cavet1.BackColor = Color.Transparent;
+            cavet2.Parent = background;
+            cavet2.BackColor = Color.Transparent;
+            cavet3.Parent = background;
+            cavet3.BackColor = Color.Transparent;
+            arrowt1.Parent = background;
+            arrowt1.BackColor = Color.Transparent;
+            arrowt2.Parent = background;
+            arrowt2.BackColor = Color.Transparent;
+            arrowt3.Parent = background;
+            arrowt3.BackColor = Color.Transparent;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
+        /*
         public void UpdateGraphics(int cave1num, int cave2, int cave3, Boolean batsShow, Boolean pitShow, Boolean wumpusShow)
         {
+            /*
             cave1.Text = Convert.ToString(cave1num);
             if (batsShow)
             {
@@ -163,13 +178,8 @@ namespace WumpusTest
             if (wumpusShow)
             {
                 wumpus.Visible = true;
-            }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+            }*/
+        //}
 
         private void buyArrows_Click(object sender, EventArgs e)
         {
@@ -181,6 +191,15 @@ namespace WumpusTest
             }
             update();
 
+        }
+
+        private void cave1_Click_1(object sender, EventArgs e)
+        {
+            //gc.move(Convert.ToInt32(cave1.Text));
+            //gc.move(surroundingRoom[2]);
+            gc.getMap().movePlayer(surroundingRoom[0]);
+            gc.getPlayerInfo().addScore(20);
+            update();
         }
 
         private void cave2_Click(object sender, EventArgs e)
@@ -201,29 +220,12 @@ namespace WumpusTest
             update();
         }
 
-        private void cave1_Click_1(object sender, EventArgs e)
-        {
-            //gc.move(Convert.ToInt32(cave1.Text));
-            //gc.move(surroundingRoom[2]);
-            gc.getMap().movePlayer(surroundingRoom[0]);
-            gc.getPlayerInfo().addScore(20);
-            update();
-        }
-
         private void score_Click(object sender, EventArgs e)
         {
-            //score.Text = "Score" + Convert.ToString(gc.getPlayerInfo().getScore());
         }
 
         private void gold_Click(object sender, EventArgs e)
         {
-            //gold.Text = "Gold" + Convert.ToString(gc.getPlayerInfo().getGold());
-
-        }
-
-        private void pit_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void CurrentRoomNum_Click(object sender, EventArgs e)
@@ -231,24 +233,40 @@ namespace WumpusTest
             CurrentRoomNum.Text = Convert.ToString(gc.getMap().getPlayerPosition());
         }
 
-        private void wumpus_Click(object sender, EventArgs e)
+        private void background_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void shootArrow_Click(object sender, EventArgs e)
-        {
-            //gc.getPlayerInfo. SHOOT ARROW
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void arrowCount_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void shoot1_Click(object sender, EventArgs e)
+        private void cavet1_Click(object sender, EventArgs e)
         {
-            if(gc.getPlayerInfo().getArrows() != 0)
+            gc.getMap().movePlayer(surroundingRoom[0]);
+            gc.getPlayerInfo().addScore(20);
+            update();
+        }
+
+        private void cavet2_Click(object sender, EventArgs e)
+        {
+            gc.getMap().movePlayer(surroundingRoom[1]);
+            gc.getPlayerInfo().addScore(20);
+            update();
+        }
+
+        private void cavet3_Click(object sender, EventArgs e)
+        {
+            gc.getMap().movePlayer(surroundingRoom[2]);
+            gc.getPlayerInfo().addScore(20);
+            update();
+        }
+
+        private void arrowt1_Click(object sender, EventArgs e)
+        {
+            if (gc.getPlayerInfo().getArrows() != 0)
             {
                 gc.getPlayerInfo().removeArrows();
                 if ((surroundingRoom[0] == gc.getMap().getWumpusPosition()))
@@ -263,10 +281,14 @@ namespace WumpusTest
                 }
 
             }
+            else if (gc.getPlayerInfo().getArrows() == 0)
+            {
+                var message = MessageBox.Show("You do not have any arrows");
+            }
             update();
         }
 
-        private void shoot2_Click(object sender, EventArgs e)
+        private void arrowt2_Click(object sender, EventArgs e)
         {
             if (gc.getPlayerInfo().getArrows() != 0)
             {
@@ -282,10 +304,14 @@ namespace WumpusTest
 
                 }
             }
+            else if(gc.getPlayerInfo().getArrows() == 0)
+            {
+                var message = MessageBox.Show("You do not have any arrows");
+            }
             update();
         }
 
-        private void shoot3_Click(object sender, EventArgs e)
+        private void arrowt3_Click(object sender, EventArgs e)
         {
             if (gc.getPlayerInfo().getArrows() != 0)
             {
@@ -301,8 +327,13 @@ namespace WumpusTest
 
                 }
             }
+            else if (gc.getPlayerInfo().getArrows() == 0)
+            {
+                var message = MessageBox.Show("You do not have any arrows");
+            }
             update();
         }
+
 
 
 

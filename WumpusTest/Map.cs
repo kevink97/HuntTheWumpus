@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WumpusTest
 {
-    public class Map : IMap
+    public class Map 
     {
         
         int playerPosition;
@@ -323,7 +323,16 @@ namespace WumpusTest
         //FIXED NAMING TO FIT NEEDS
         public void generateRandomPlayerPosition()
         {
-            playerPosition = random.Next(mapSize);
+            bool playerOK = false;
+            while (!playerOK)
+            {
+                int x = random.Next(0, 30);
+                if ((x != pitPosition[0] && x != pitPosition[1]) && (x != batPosition[0] && x != batPosition[1]) && (x != wumpusPosition))
+                {
+                    playerPosition = x;
+                    playerOK = true;
+                }
+            }
         }
 
         public int[] getConnectedRooms(int room, int caveNumber)

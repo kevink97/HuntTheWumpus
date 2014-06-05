@@ -31,80 +31,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InGame));
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.cave2 = new System.Windows.Forms.Button();
-            this.cave3 = new System.Windows.Forms.Button();
-            this.cave1 = new System.Windows.Forms.Button();
-            this.bat = new System.Windows.Forms.PictureBox();
             this.buyArrows = new System.Windows.Forms.Button();
             this.arrowCount = new System.Windows.Forms.Label();
             this.score = new System.Windows.Forms.Label();
             this.gold = new System.Windows.Forms.Label();
-            this.pit = new System.Windows.Forms.PictureBox();
             this.CurrentRoomNum = new System.Windows.Forms.Label();
-            this.player = new System.Windows.Forms.PictureBox();
-            this.wumpus = new System.Windows.Forms.PictureBox();
-            this.shoot1 = new System.Windows.Forms.Button();
-            this.shoot2 = new System.Windows.Forms.Button();
-            this.shoot3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wumpus)).BeginInit();
+            this.cavet1 = new System.Windows.Forms.Label();
+            this.cavet2 = new System.Windows.Forms.Label();
+            this.cavet3 = new System.Windows.Forms.Label();
+            this.arrowt1 = new System.Windows.Forms.Label();
+            this.arrowt2 = new System.Windows.Forms.Label();
+            this.arrowt3 = new System.Windows.Forms.Label();
+            this.background = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1, -3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(618, 571);
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // cave2
-            // 
-            this.cave2.Location = new System.Drawing.Point(224, 53);
-            this.cave2.Name = "cave2";
-            this.cave2.Size = new System.Drawing.Size(150, 42);
-            this.cave2.TabIndex = 15;
-            this.cave2.UseVisualStyleBackColor = true;
-            this.cave2.Click += new System.EventHandler(this.cave2_Click);
-            // 
-            // cave3
-            // 
-            this.cave3.Location = new System.Drawing.Point(405, 53);
-            this.cave3.Name = "cave3";
-            this.cave3.Size = new System.Drawing.Size(150, 42);
-            this.cave3.TabIndex = 17;
-            this.cave3.UseVisualStyleBackColor = true;
-            this.cave3.Click += new System.EventHandler(this.cave3_Click);
-            // 
-            // cave1
-            // 
-            this.cave1.Location = new System.Drawing.Point(49, 53);
-            this.cave1.Name = "cave1";
-            this.cave1.Size = new System.Drawing.Size(150, 42);
-            this.cave1.TabIndex = 18;
-            this.cave1.UseVisualStyleBackColor = true;
-            this.cave1.Click += new System.EventHandler(this.cave1_Click_1);
-            // 
-            // bat
-            // 
-            this.bat.Image = ((System.Drawing.Image)(resources.GetObject("bat.Image")));
-            this.bat.Location = new System.Drawing.Point(96, 209);
-            this.bat.Name = "bat";
-            this.bat.Size = new System.Drawing.Size(396, 298);
-            this.bat.TabIndex = 20;
-            this.bat.TabStop = false;
-            this.bat.Visible = false;
             // 
             // buyArrows
             // 
-            this.buyArrows.Location = new System.Drawing.Point(76, 9);
+            this.buyArrows.Location = new System.Drawing.Point(193, 6);
             this.buyArrows.Name = "buyArrows";
             this.buyArrows.Size = new System.Drawing.Size(75, 23);
             this.buyArrows.TabIndex = 21;
@@ -116,22 +60,23 @@
             // 
             this.arrowCount.AutoSize = true;
             this.arrowCount.BackColor = System.Drawing.Color.Transparent;
-            this.arrowCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrowCount.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arrowCount.ForeColor = System.Drawing.Color.White;
-            this.arrowCount.Location = new System.Drawing.Point(8, 9);
+            this.arrowCount.Location = new System.Drawing.Point(45, 9);
             this.arrowCount.Name = "arrowCount";
-            this.arrowCount.Size = new System.Drawing.Size(45, 20);
+            this.arrowCount.Size = new System.Drawing.Size(49, 23);
             this.arrowCount.TabIndex = 22;
             this.arrowCount.Text = "temp";
+            this.arrowCount.Click += new System.EventHandler(this.arrowCount_Click);
             // 
             // score
             // 
             this.score.AutoSize = true;
-            this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.ForeColor = System.Drawing.Color.White;
-            this.score.Location = new System.Drawing.Point(452, 12);
+            this.score.Location = new System.Drawing.Point(686, 9);
             this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(51, 20);
+            this.score.Size = new System.Drawing.Size(56, 23);
             this.score.TabIndex = 23;
             this.score.Text = "Score";
             this.score.Click += new System.EventHandler(this.score_Click);
@@ -139,111 +84,131 @@
             // gold
             // 
             this.gold.AutoSize = true;
-            this.gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gold.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gold.ForeColor = System.Drawing.Color.White;
-            this.gold.Location = new System.Drawing.Point(272, 12);
+            this.gold.Location = new System.Drawing.Point(401, 12);
             this.gold.Name = "gold";
-            this.gold.Size = new System.Drawing.Size(43, 20);
+            this.gold.Size = new System.Drawing.Size(47, 23);
             this.gold.TabIndex = 24;
             this.gold.Text = "Gold";
             this.gold.Click += new System.EventHandler(this.gold_Click);
             // 
-            // pit
-            // 
-            this.pit.Location = new System.Drawing.Point(-574, 391);
-            this.pit.Name = "pit";
-            this.pit.Size = new System.Drawing.Size(646, 619);
-            this.pit.TabIndex = 25;
-            this.pit.TabStop = false;
-            this.pit.Visible = false;
-            this.pit.Click += new System.EventHandler(this.pit_Click);
-            // 
             // CurrentRoomNum
             // 
             this.CurrentRoomNum.AutoSize = true;
-            this.CurrentRoomNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentRoomNum.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentRoomNum.ForeColor = System.Drawing.Color.White;
             this.CurrentRoomNum.Location = new System.Drawing.Point(446, 530);
             this.CurrentRoomNum.Name = "CurrentRoomNum";
-            this.CurrentRoomNum.Size = new System.Drawing.Size(109, 20);
+            this.CurrentRoomNum.Size = new System.Drawing.Size(124, 23);
             this.CurrentRoomNum.TabIndex = 26;
             this.CurrentRoomNum.Text = "Current Room";
             this.CurrentRoomNum.Click += new System.EventHandler(this.CurrentRoomNum_Click);
             // 
-            // player
+            // cavet1
             // 
-            this.player.Location = new System.Drawing.Point(175, 209);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(269, 341);
-            this.player.TabIndex = 27;
-            this.player.TabStop = false;
+            this.cavet1.Font = new System.Drawing.Font("Kristen ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cavet1.ForeColor = System.Drawing.Color.Snow;
+            this.cavet1.Location = new System.Drawing.Point(12, 143);
+            this.cavet1.Name = "cavet1";
+            this.cavet1.Size = new System.Drawing.Size(159, 147);
+            this.cavet1.TabIndex = 27;
+            this.cavet1.Text = "Template1";
+            this.cavet1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cavet1.Click += new System.EventHandler(this.cavet1_Click);
             // 
-            // wumpus
+            // cavet2
             // 
-            this.wumpus.Location = new System.Drawing.Point(106, 209);
-            this.wumpus.Name = "wumpus";
-            this.wumpus.Size = new System.Drawing.Size(397, 308);
-            this.wumpus.TabIndex = 28;
-            this.wumpus.TabStop = false;
-            this.wumpus.Visible = false;
-            this.wumpus.Click += new System.EventHandler(this.wumpus_Click);
+            this.cavet2.Font = new System.Drawing.Font("Kristen ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cavet2.ForeColor = System.Drawing.Color.Snow;
+            this.cavet2.Location = new System.Drawing.Point(273, 143);
+            this.cavet2.Name = "cavet2";
+            this.cavet2.Size = new System.Drawing.Size(126, 128);
+            this.cavet2.TabIndex = 28;
+            this.cavet2.Text = "Template2";
+            this.cavet2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cavet2.Click += new System.EventHandler(this.cavet2_Click);
             // 
-            // shoot1
+            // cavet3
             // 
-            this.shoot1.Location = new System.Drawing.Point(49, 119);
-            this.shoot1.Name = "shoot1";
-            this.shoot1.Size = new System.Drawing.Size(150, 23);
-            this.shoot1.TabIndex = 30;
-            this.shoot1.UseVisualStyleBackColor = true;
-            this.shoot1.Click += new System.EventHandler(this.shoot1_Click);
+            this.cavet3.Font = new System.Drawing.Font("Kristen ITC", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cavet3.ForeColor = System.Drawing.Color.Snow;
+            this.cavet3.Location = new System.Drawing.Point(578, 126);
+            this.cavet3.Name = "cavet3";
+            this.cavet3.Size = new System.Drawing.Size(150, 145);
+            this.cavet3.TabIndex = 29;
+            this.cavet3.Text = "Template3";
+            this.cavet3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cavet3.Click += new System.EventHandler(this.cavet3_Click);
             // 
-            // shoot2
+            // arrowt1
             // 
-            this.shoot2.Location = new System.Drawing.Point(224, 119);
-            this.shoot2.Name = "shoot2";
-            this.shoot2.Size = new System.Drawing.Size(150, 23);
-            this.shoot2.TabIndex = 31;
-            this.shoot2.UseVisualStyleBackColor = true;
-            this.shoot2.Click += new System.EventHandler(this.shoot2_Click);
+            this.arrowt1.Font = new System.Drawing.Font("Kristen ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrowt1.ForeColor = System.Drawing.Color.DeepPink;
+            this.arrowt1.Location = new System.Drawing.Point(12, 310);
+            this.arrowt1.Name = "arrowt1";
+            this.arrowt1.Size = new System.Drawing.Size(159, 87);
+            this.arrowt1.TabIndex = 30;
+            this.arrowt1.Text = "arrow1";
+            this.arrowt1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arrowt1.Click += new System.EventHandler(this.arrowt1_Click);
             // 
-            // shoot3
+            // arrowt2
             // 
-            this.shoot3.Location = new System.Drawing.Point(405, 119);
-            this.shoot3.Name = "shoot3";
-            this.shoot3.Size = new System.Drawing.Size(150, 23);
-            this.shoot3.TabIndex = 32;
-            this.shoot3.UseVisualStyleBackColor = true;
-            this.shoot3.Click += new System.EventHandler(this.shoot3_Click);
+            this.arrowt2.Font = new System.Drawing.Font("Kristen ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrowt2.ForeColor = System.Drawing.Color.DeepPink;
+            this.arrowt2.Location = new System.Drawing.Point(258, 285);
+            this.arrowt2.Name = "arrowt2";
+            this.arrowt2.Size = new System.Drawing.Size(157, 99);
+            this.arrowt2.TabIndex = 31;
+            this.arrowt2.Text = "arrow1";
+            this.arrowt2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arrowt2.Click += new System.EventHandler(this.arrowt2_Click);
+            // 
+            // arrowt3
+            // 
+            this.arrowt3.Font = new System.Drawing.Font("Kristen ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrowt3.ForeColor = System.Drawing.Color.DeepPink;
+            this.arrowt3.Location = new System.Drawing.Point(559, 285);
+            this.arrowt3.Name = "arrowt3";
+            this.arrowt3.Size = new System.Drawing.Size(169, 88);
+            this.arrowt3.TabIndex = 32;
+            this.arrowt3.Text = "arrow1";
+            this.arrowt3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arrowt3.Click += new System.EventHandler(this.arrowt3_Click);
+            // 
+            // background
+            // 
+            this.background.Image = global::WumpusTest.Properties.Resources.underwaterCaves2;
+            this.background.Location = new System.Drawing.Point(1, -3);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(785, 571);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background.TabIndex = 14;
+            this.background.TabStop = false;
+            this.background.Click += new System.EventHandler(this.background_Click);
             // 
             // InGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 562);
-            this.Controls.Add(this.shoot3);
-            this.Controls.Add(this.shoot2);
-            this.Controls.Add(this.shoot1);
-            this.Controls.Add(this.wumpus);
-            this.Controls.Add(this.player);
+            this.ClientSize = new System.Drawing.Size(785, 562);
+            this.Controls.Add(this.arrowt3);
+            this.Controls.Add(this.arrowt2);
+            this.Controls.Add(this.arrowt1);
+            this.Controls.Add(this.cavet3);
+            this.Controls.Add(this.cavet2);
+            this.Controls.Add(this.cavet1);
             this.Controls.Add(this.CurrentRoomNum);
-            this.Controls.Add(this.pit);
             this.Controls.Add(this.gold);
             this.Controls.Add(this.score);
             this.Controls.Add(this.arrowCount);
             this.Controls.Add(this.buyArrows);
-            this.Controls.Add(this.bat);
-            this.Controls.Add(this.cave1);
-            this.Controls.Add(this.cave3);
-            this.Controls.Add(this.cave2);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.background);
             this.Name = "InGame";
-            this.Text = "s";
+            this.Text = "Game";
             this.Load += new System.EventHandler(this.Graphics_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wumpus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,21 +216,17 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button cave2;
-        private System.Windows.Forms.Button cave3;
-        private System.Windows.Forms.Button cave1;
-        private System.Windows.Forms.PictureBox bat;
+        private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.Button buyArrows;
         private System.Windows.Forms.Label arrowCount;
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.Label gold;
-        private System.Windows.Forms.PictureBox pit;
         private System.Windows.Forms.Label CurrentRoomNum;
-        private System.Windows.Forms.PictureBox player;
-        private System.Windows.Forms.PictureBox wumpus;
-        private System.Windows.Forms.Button shoot1;
-        private System.Windows.Forms.Button shoot2;
-        private System.Windows.Forms.Button shoot3;
+        private System.Windows.Forms.Label cavet1;
+        private System.Windows.Forms.Label cavet2;
+        private System.Windows.Forms.Label cavet3;
+        private System.Windows.Forms.Label arrowt1;
+        private System.Windows.Forms.Label arrowt2;
+        private System.Windows.Forms.Label arrowt3;
     }
 }

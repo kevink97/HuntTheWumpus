@@ -46,6 +46,8 @@ namespace WumpusTest
         private Random random = new Random();
         private int caveNumber = 0; //TODO: implement caveNumber random generator
 
+        
+
         /// <summary>
         /// Use this method to declare that the game is starting to keep track of GameState.
         /// It sets CurrentState to GAME
