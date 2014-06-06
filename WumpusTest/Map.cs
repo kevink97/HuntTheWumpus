@@ -83,7 +83,7 @@ namespace WumpusTest
             for(int i = 0; i < 2; i++)
             {
                 int x = random.Next(0, randomizedRoomList.Count);
-                if(x != pitPosition[0] && x != pitPosition[1])
+                if((x != pitPosition[0]) && (x != pitPosition[1]))
                 {
                     batPosition[i] = randomizedRoomList[x];
                 }
@@ -98,7 +98,7 @@ namespace WumpusTest
             bool wumpusOK = false;
             while(!wumpusOK)
             {
-                int n = random.Next(0, randomizedRoomList.Count);
+                int n = random.Next(1, 30);
                 if((n != pitPosition[0] && n != pitPosition[1]) && (n != batPosition[0] && n != batPosition[1] ))
                 {
                     wumpusPosition = n;
@@ -109,7 +109,7 @@ namespace WumpusTest
             bool playerOK = false;
             while(!playerOK)
             {
-                int x = random.Next(0, randomizedRoomList.Count);
+                int x = random.Next(1, 30);
                 if ((x != pitPosition[0] && x != pitPosition[1]) && (x != batPosition[0] && x != batPosition[1]))
                 {
                     playerPosition = x;
@@ -326,7 +326,7 @@ namespace WumpusTest
             bool playerOK = false;
             while (!playerOK)
             {
-                int x = random.Next(0, 30);
+                int x = random.Next(1, 30);
                 if ((x != pitPosition[0] && x != pitPosition[1]) && (x != batPosition[0] && x != batPosition[1]) && (x != wumpusPosition))
                 {
                     playerPosition = x;

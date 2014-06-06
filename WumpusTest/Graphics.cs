@@ -109,9 +109,11 @@ namespace WumpusTest
             }
             if(gc.getMap().isBatWithPlayer())
             {
+                bats.Visible = true;
                 gc.getMap().generateRandomPlayerPosition();
                 String position = gc.getMap().getPlayerPosition().ToString();
                 var message = MessageBox.Show("watch out..there are invisible bats.\nyou will now be teleported to: cave " + position);
+                bats.Visible = false;
                 update();
             }
             if(gc.getMap().areBatsNear())
@@ -174,6 +176,7 @@ namespace WumpusTest
             shark.Parent = background;
             shark.BackColor = Color.Transparent;
             shark.Visible = false;
+            bats.Visible = false;
         }
 
         /*
@@ -338,6 +341,11 @@ namespace WumpusTest
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bats_Click(object sender, EventArgs e)
         {
 
         }

@@ -16,6 +16,11 @@ namespace WumpusTest
         public TitleScreen()
         {
             InitializeComponent();
+            var pos = this.PointToScreen(title2.Location);
+            pos = pictureBox1.PointToClient(pos);
+            title2.Parent = pictureBox1;
+            title2.Location = pos;
+            title2.BackColor = Color.Transparent;
             //showBackground();
         }
 
@@ -50,6 +55,9 @@ namespace WumpusTest
         private void TitleScreen_Load(object sender, EventArgs e)
         {
 
+            by.Parent = pictureBox1;
+            by.BackColor = Color.Transparent;
+            by.Text = "Developed by: \nGamecontrol && Graphics: Kevin Kang\nHigh Score: Vaishnavi Dhawan\nWumpus: Isabel Zhang\nMap: Nathan Gartner";
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -59,7 +67,8 @@ namespace WumpusTest
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var message = MessageBox.Show("Sorry judges. Maybe Next Time.");
+            Instruction inst = new Instruction();
+            inst.Show();
         }
        // public void showBackground()
         //{

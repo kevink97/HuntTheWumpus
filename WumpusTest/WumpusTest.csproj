@@ -56,6 +56,12 @@
     <Compile Include="HighScoreDisplay.Designer.cs">
       <DependentUpon>HighScoreDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Instruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruction.Designer.cs">
+      <DependentUpon>Instruction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="TitleScreen.cs">
@@ -85,6 +91,9 @@
     <Compile Include="WumpusGraphics.cs" />
     <EmbeddedResource Include="HighScoreDisplay.resx">
       <DependentUpon>HighScoreDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruction.resx">
+      <DependentUpon>Instruction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TitleScreen.resx">
       <DependentUpon>TitleScreen.cs</DependentUpon>
@@ -127,6 +136,9 @@
     <None Include="Resources\whirlpool.png" />
     <None Include="Resources\whirlpool1.png" />
     <None Include="Resources\shark.png" />
+    <None Include="Resources\fishbat.png" />
+    <None Include="Resources\starfish.gif" />
+    <None Include="Resources\seagull.gif" />
     <Content Include="SoundFiles\Anger.wav" />
     <Content Include="SoundFiles\babysneeze.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

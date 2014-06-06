@@ -20,5 +20,15 @@ namespace WumpusTest
         {
 
         }
+
+        private void HighScoreDisplay_Load(object sender, EventArgs e)
+        {
+            HighScoreTitle.Parent = background;
+            HighScoreTitle.BackColor = Color.Transparent;
+
+            ListOfHighScore.Parent = background;
+            ListOfHighScore.BackColor = Color.Transparent;
+
+        }
     }
 }

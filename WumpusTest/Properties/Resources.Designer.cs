@@ -73,6 +73,16 @@ namespace WumpusTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fishbat {
+            get {
+                object obj = ResourceManager.GetObject("fishbat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap JellyfisDoors {
             get {
                 object obj = ResourceManager.GetObject("JellyfisDoors", resourceCulture);
@@ -113,9 +123,29 @@ namespace WumpusTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap seagull {
+            get {
+                object obj = ResourceManager.GetObject("seagull", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shark {
             get {
                 object obj = ResourceManager.GetObject("shark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap starfish {
+            get {
+                object obj = ResourceManager.GetObject("starfish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

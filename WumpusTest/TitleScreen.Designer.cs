@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.by = new System.Windows.Forms.Label();
+            this.title2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +77,35 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // by
+            // 
+            this.by.AutoSize = true;
+            this.by.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.by.ForeColor = System.Drawing.Color.White;
+            this.by.Location = new System.Drawing.Point(518, 151);
+            this.by.Name = "by";
+            this.by.Size = new System.Drawing.Size(59, 25);
+            this.by.TabIndex = 5;
+            this.by.Text = "label1";
+            // 
+            // title2
+            // 
+            this.title2.AutoSize = true;
+            this.title2.Font = new System.Drawing.Font("Papyrus", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title2.ForeColor = System.Drawing.Color.White;
+            this.title2.Location = new System.Drawing.Point(37, 21);
+            this.title2.Name = "title2";
+            this.title2.Size = new System.Drawing.Size(617, 51);
+            this.title2.TabIndex = 6;
+            this.title2.Text = "Hunt the Wumpus: Underwater Edition";
+            // 
             // TitleScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 430);
+            this.Controls.Add(this.title2);
+            this.Controls.Add(this.by);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -89,6 +115,7 @@
             this.Load += new System.EventHandler(this.TitleScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,6 +125,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label by;
+        private System.Windows.Forms.Label title2;
 
 
     }

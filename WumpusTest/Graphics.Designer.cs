@@ -42,6 +42,7 @@
             this.arrowt1 = new System.Windows.Forms.Label();
             this.arrowt2 = new System.Windows.Forms.Label();
             this.arrowt3 = new System.Windows.Forms.Label();
+            this.bats = new System.Windows.Forms.Label();
             this.shark = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.background = new System.Windows.Forms.PictureBox();
@@ -179,6 +180,16 @@
             this.arrowt3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.arrowt3.Click += new System.EventHandler(this.arrowt3_Click);
             // 
+            // bats
+            // 
+            this.bats.Image = global::WumpusTest.Properties.Resources.fishbat;
+            this.bats.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.bats.Location = new System.Drawing.Point(1, -3);
+            this.bats.Name = "bats";
+            this.bats.Size = new System.Drawing.Size(785, 675);
+            this.bats.TabIndex = 36;
+            this.bats.Click += new System.EventHandler(this.bats_Click);
+            // 
             // shark
             // 
             this.shark.Image = global::WumpusTest.Properties.Resources.shark;
@@ -212,6 +223,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 562);
+            this.Controls.Add(this.bats);
             this.Controls.Add(this.shark);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.arrowt3);
@@ -251,5 +263,6 @@
         private System.Windows.Forms.Label arrowt3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label shark;
+        private System.Windows.Forms.Label bats;
     }
 }
